@@ -4,6 +4,10 @@
 		<meta charset="UTF-8">
 		<title>Thaumcraft 4.1 Research Helper</title>
 		<script type="text/javascript" src="buckets-minified.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="jquery.ddslick.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<script>
 			graph = {};
 			function connect(aspect1, aspect2) {
@@ -64,6 +68,11 @@
 				connect(compound, combinations[compound][1]);
 			}
 
+			function toggle(obj) {
+				$(obj).find("img").attr("src", function(i,orig){ return (orig.indexOf("color") < 0) ? orig.replace(/mono/, "color") : orig.replace(/color/, "mono"); });
+				$(obj).toggleClass("unavail");
+			}
+
 			window.onload = function() {
 				function option(value, text) {
 					var option = document.createElement("option");
@@ -74,56 +83,70 @@
 
 				fromSel = document.getElementById("fromSel");
 				toSel = document.getElementById("toSel");
-				stepSel = document.getElementById("steps");
+				//stepSel = document.getElementById("steps");
 				check = document.getElementById("available");
 				var i = 0;
 				aspects.forEach(function(aspect) {
-					fromSel.appendChild(option(aspect, translate[aspect] + " (" + aspect + ")"));
-					toSel.appendChild(option(aspect, translate[aspect] + " (" + aspect + ")"));
-					var checkbox = document.createElement('input');
-					checkbox.type = "checkbox";
-					//checkbox.name = "check" + aspect;
-					checkbox.value = aspect;
-					checkbox.id = "check" + aspect;
-					checkbox.checked = "checked";
-					var label = document.createElement('label')
-					label.htmlFor = "check" + aspect;
-					label.appendChild(document.createTextNode(translate[aspect] + " (" + aspect + ")"));
-					check.appendChild(checkbox);
-					check.appendChild(label);
-					i++;
-					if (i > 3) {
-						i = 0;
-						check.appendChild(document.createElement("br"));
-					}
+					$('#avail').append('<li><a onclick="toggle(this)" id="check' + aspect + '"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></a></li>');
 				});
-				for (var i=0; i<11; i++) {
-					stepSel.appendChild(option(i, "" + i));
-				}
+				//$('#available').buttonset();
+				// for (var i=0; i<11; i++) {
+				// 	stepSel.appendChild(option(i, "" + i));
+				// }
+				var ddData = [];
+				aspects.forEach(function(aspect) {
+					ddData.push({text: translate[aspect], value: aspect, description: "(" + aspect + ")", imageSrc: "aspects/color/" + translate[aspect] + ".png"});
+				});
+				$('#fromSel').ddslick({
+					data: ddData,
+					defaultSelectedIndex: 0,
+					height: 300,
+					width: 170
+				});
+				$('#toSel').ddslick({
+					data: ddData,
+					defaultSelectedIndex: 0,
+					height: 300,
+					width: 170
+				});
+				steps = $("#spinner").spinner({
+					min: 0,
+					max: 10
+				});
 			};
-
 			function run() {
-				alert(output(find(fromSel.options[fromSel.selectedIndex].value, toSel.options[toSel.selectedIndex].value, stepSel.selectedIndex)));
+				alert(output(find($('#fromSel').data('ddslick').selectedData.value, $('#toSel').data('ddslick').selectedData.value, steps.spinner("value"))));
 			}
 
 			function getWeight(aspect) {
-				var el = document.getElementById("check" + aspect);
-				return (el.checked) ? 1 : 100;
+				var el = $("#check" + aspect);
+				return (el.hasClass("unavail")) ? 100 : 1;
 			}
 		</script>
+		<style>
+			#avail { list-style:none; padding:0; overflow:scroll; height:300px; display:block; width:650px; }
+			#avail > li { display:block; width:145px; float:left; }
+			#avail > li > a { padding:5px; display:block; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;}
+			#avail > li > a:hover { background:#f3f3f3; color:#000; font-weight:bold; }
+			#avail > li > a > img { vertical-align:middle; float:left; margin-right:5px; max-width:64px; }
+			#avail .desc { color:#aaa; overflow: hidden; font-weight:normal; line-height: 1.4em; font-size:small; }
+			#avail > li > a.unavail { background:#f3f3f3; color:#999; }
+			#avail > li > a.unavail:hover { background:#e8e8e8; }
+		</style>
 	</head>
 	<body>
 		<h2>Thaumcraft 4.1 Research Helper</h2>
 		<table>
-			<tr><td>Available<br/>Aspects:</td><td id="available"></td></tr>
-			<tr><td>From:</td><td><select id="fromSel"></select></td></tr>
-			<tr><td>To:</td><td><select id="toSel"></select></td></tr>
-			<tr><td>Min. Steps:</td><td><select id="steps"></select></td></tr>
+			<tr><td>Available<br/>Aspects:</td><td><ul id="avail"></ul></td></tr>
+			<tr><td>From:</td><td><div id="fromSel"></div></td></tr>
+			<tr><td>To:</td><td><div id="toSel"></div></td></tr>
+			<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="0" style="width:140px" /><!-- <select id="steps"></select> --></td></tr>
 			<tr><td></td><td><a href="javascript: run();">Find Connection</a></td></tr>
 		</table>
-		<h3>Help</h3>
+		
+		<h3 style="margin-top:100px">Help</h3>
 		<p>This script helps you with your Thaumcraft 4.1 research. If you have a research note with to aspects that you don't know how to connect, simply choose them in the dropdown list above (<strong>From:</strong> and <strong>To:</strong>). Additionally, choose the minimum number of steps between those to aspects. If in your research note, the two aspects have two blank spaces between them, choose the value 2 for <strong>Min. Steps</strong>. Then click <strong>Find Connection</strong> and the script will search for the shortest path (well, with at least the minimum length) that connects the two aspects. Note that sometimes the length of any path is longer then the given minimum, but this should not be a problem for your research note.</p>
 		<p>If your are unhappy with the path you got, because you do not have access to those aspects yet or they are quite rare, simply disable those aspects from <strong>Available Aspects:</strong>. The script will then try to find paths without these. Note that this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of those, the script will try to find the shortest path with the minimal number of disabled aspects.</p>
-		<p style="size:80%;color:#666;margin-top:100px;">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" style="color:#55a;">Creative Commons Attribution 4.0 License</a>. Sources can be found in the <a href="https://github.com/ythri/tcresearch/tree/gh-pages" style="color:#55a;">github repository</a>.</p>
+		<p style="size:small;color:#666;margin-top:50px;">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" style="color:#55a;">Creative Commons Attribution 4.0 License</a>. Sources can be found in the <a href="https://github.com/ythri/tcresearch/tree/gh-pages" style="color:#55a;">github repository</a>.</p>
 	</body>
 </html>
