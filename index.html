@@ -113,9 +113,20 @@
 					min: 0,
 					max: 10
 				});
+				$("#result").dialog({
+					autoOpen: false,
+					modal: true,
+					width: 200
+				});
 			};
 			function run() {
-				alert(output(find($('#fromSel').data('ddslick').selectedData.value, $('#toSel').data('ddslick').selectedData.value, steps.spinner("value"))));
+				var path = find($('#fromSel').data('ddslick').selectedData.value, $('#toSel').data('ddslick').selectedData.value, steps.spinner("value"));
+				$('#result').empty();
+				path.forEach(function(e) {
+					$('#result').append('<li><img src="aspects/color/' + translate[e] + '.png" /><div>' + translate[e] + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
+				});
+				$('#result').children().last().remove();
+				$('#result').dialog("open");
 			}
 
 			function getWeight(aspect) {
@@ -124,20 +135,23 @@
 			}
 		</script>
 		<style>
-			#avail { list-style:none; padding:0; overflow:scroll; height:300px; display:block; width:650px; }
-			#avail > li { display:block; width:145px; float:left; }
-			#avail > li > a { padding:5px; display:block; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;}
+			.aspectlist { list-style:none; padding:0; overflow:scroll; height:300px; display:block; width:650px; }
+			.aspectlist > li { display:block; width:145px; float:left; font-size:100%; font-family:serif; }
+			#avail > li > * { padding:5px; display:block; overflow:hidden; text-decoration:none; color:#333; cursor:pointer; }
 			#avail > li > a:hover { background:#f3f3f3; color:#000; font-weight:bold; }
-			#avail > li > a > img { vertical-align:middle; float:left; margin-right:5px; max-width:64px; }
-			#avail .desc { color:#aaa; overflow: hidden; font-weight:normal; line-height: 1.4em; font-size:small; }
+			.aspectlist > li img { vertical-align:middle; float:left; margin-right:5px; max-width:64px; }
+			.aspectlist .desc { color:#aaa; overflow: hidden; font-weight:normal; line-height: 1.4em; font-size:small; }
+			.aspectlist > li > div { text-align:left; }
 			#avail > li > a.unavail { background:#f3f3f3; color:#999; }
 			#avail > li > a.unavail:hover { background:#e8e8e8; }
+			#result > li { padding-bottom:10px; text-align:center; }
 		</style>
 	</head>
 	<body>
 		<h2>Thaumcraft 4.1 Research Helper</h2>
+		<ul id="result" class="aspectlist" title="Result"></ul>
 		<table>
-			<tr><td>Available<br/>Aspects:</td><td><ul id="avail"></ul></td></tr>
+			<tr><td>Available<br/>Aspects:</td><td><ul id="avail" class="aspectlist"></ul></td></tr>
 			<tr><td>From:</td><td><div id="fromSel"></div></td></tr>
 			<tr><td>To:</td><td><div id="toSel"></div></td></tr>
 			<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="0" style="width:140px" /><!-- <select id="steps"></select> --></td></tr>
