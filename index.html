@@ -62,6 +62,8 @@
 			aspects = [ "air", "earth", "fire", "water", "order", "entropy", "void", "light", "energy", "motion", "stone", "life", "weather", "ice", "crystal", "death", "flight", "darkness", "soul", "heal", "travel", "poison", "eldritch", "magic", "aura", "taint", "seed", "slime", "plant", "tree", "beast", "flesh", "undead", "mind", "senses", "man", "crop", "harvest", "metal", "mine", "tool", "weapon", "armor", "hunger", "greed", "craft", "cloth", "mechanism", "trap", "exchange", "wrath", "nether", "gluttony", "envy", "sloth", "pride", "lust", "time" ].sort(function(a,b){
 				return (a == b) ? 0 : (translate[a]<translate[b]) ? -1 : 1;
 			});
+			fm = [ "wrath", "nether", "gluttony", "envy", "sloth", "pride", "lust" ]
+			mb = [ "time" ];
 
 			for (compound in combinations) {
 				connect(compound, combinations[compound][0]);
@@ -87,7 +89,11 @@
 				check = document.getElementById("available");
 				var i = 0;
 				aspects.forEach(function(aspect) {
-					$('#avail').append('<li><a onclick="toggle(this)" id="check' + aspect + '"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></a></li>');
+					if (fm.indexOf(aspect) < 0 && mb.indexOf(aspect) < 0) {
+						$('#avail').append('<li><a onclick="toggle(this)" id="check' + aspect + '"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></a></li>');
+					} else {
+						$('#avail').append('<li><a onclick="toggle(this)" id="check' + aspect + '" class="unavail"><img src="aspects/mono/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></a></li>');
+					}
 				});
 				//$('#available').buttonset();
 				// for (var i=0; i<11; i++) {
@@ -117,6 +123,36 @@
 					autoOpen: false,
 					modal: true,
 					width: 200
+				});
+				$('#fm').click(function() {
+					if (this.checked) {
+						fm.forEach(function(e){
+							var obj = $('#check'+e);
+							obj.find("img").attr("src", function(i,orig){ return orig.replace(/mono/, "color"); });
+							obj.removeClass("unavail");
+						});
+					} else {
+						fm.forEach(function(e){
+							var obj = $('#check'+e);
+							obj.find("img").attr("src", function(i,orig){ return orig.replace(/color/, "mono"); });
+							obj.addClass("unavail");
+						});
+					}
+				});
+				$('#mb').click(function() {
+					if (this.checked) {
+						mb.forEach(function(e){
+							var obj = $('#check'+e);
+							obj.find("img").attr("src", function(i,orig){ return orig.replace(/mono/, "color"); });
+							obj.removeClass("unavail");
+						});
+					} else {
+						mb.forEach(function(e){
+							var obj = $('#check'+e);
+							obj.find("img").attr("src", function(i,orig){ return orig.replace(/color/, "mono"); });
+							obj.addClass("unavail");
+						});
+					}
 				});
 			};
 			function run() {
@@ -151,6 +187,7 @@
 		<h2>Thaumcraft 4.1 Research Helper</h2>
 		<ul id="result" class="aspectlist" title="Result"></ul>
 		<table>
+			<tr><td>Mods</td><td><input type="checkbox" id="fm" /> Forbidden Magic <input type="checkbox" id="mb" /> Magic Bees</td></tr> 
 			<tr><td>Available<br/>Aspects:</td><td><ul id="avail" class="aspectlist"></ul></td></tr>
 			<tr><td>From:</td><td><div id="fromSel"></div></td></tr>
 			<tr><td>To:</td><td><div id="toSel"></div></td></tr>
