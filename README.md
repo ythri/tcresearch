@@ -16,7 +16,7 @@ those, the script will try to find the shortest path using the minimal number of
 News
 ----
 
-03/13: Holidays, yay. If anything changes during the next weeks while I'm gone, for example Azanor updates to 
+March 13: Holidays, yay. If anything changes during the next weeks while I'm gone, for example Azanor updates to 
 Thaumcraft 4.1.0h or 4.2 (you never know), feel free to fork this repository, add the changes, and post your fixed 
 version on the ftb forums/reddit/etc. The combinations should be really easy to change (its just a JSON object), 
 as should be adding or removing aspects (all of this only requires changes to the three variables `combinations`, 
