@@ -1,0 +1,102 @@
+.aspectlist {
+	list-style:none;
+	padding:0;
+	overflow:scroll;
+	height:300px;
+	display:block;
+	width:650px;
+}
+.aspectlist > li {
+	display:block;
+	width:145px;
+	float:left;
+	font-size:100%;
+	font-family:serif;
+}
+#avail > li > * {
+	padding:5px;
+	display:block;
+	overflow:hidden;
+	text-decoration:none;
+	color:#333;
+	cursor:pointer;
+}
+#avail > li:hover {
+	background:#f3f3f3;
+	color:#000;
+	font-weight:bold;
+}
+.aspectlist > li img {
+	vertical-align:middle;
+	float:left;
+	margin:8px 5px 0 0;
+	max-width:64px;
+}
+.aspectlist .desc, #combination_box .desc {
+	overflow: hidden;
+	font-weight:normal;
+	line-height: 1.4em;
+	font-size:small;
+}
+.aspectlist > li > div {
+	text-align:left;
+}
+#avail > li.unavail {
+	background:#f3f3f3;
+	color:#999;
+}
+#avail > li.unavail:hover {
+	background:#e8e8e8;
+}
+#close_results {
+	float:right;
+}
+.result > li {
+	margin-bottom:10px;
+	text-align:center;
+}
+.result > .aspect_result {
+	border:1px solid #e8e8e8;
+	padding:5px;
+}
+.result > li img {
+	margin:4px 5px 0 0;
+}
+#combination_box {
+	background:#d6d6d6;
+	position:absolute;
+	display:table-cell;
+	padding:5px;
+	display:none;
+}
+#combination_box img {
+	float:left;
+	margin:4px 5px 0 0;
+}
+#left, #right, #equals {
+	display:inline-block;
+	vertical-align: middle;
+}
+.operator {
+	font-size:1.2em;
+	line-height: 30px;
+	margin: 0 6px;
+}
+.name {
+	margin-left: 37px;
+}
+#aspects_used {
+	border-top:2px solid #c2c2c2;
+	padding:5px;
+}
+#aspects_used_list {
+	padding-left:0;
+}
+#aspects_used_list > li {
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	text-align:center;
+	line-height:32px;
+	cursor:default;
+}
