@@ -193,11 +193,9 @@ $(function(){
 		var id = fromSel+'to'+toSel;
 		var title = translate[fromSel]+' &rarr; '+translate[toSel];
 		var count={};
-		console.log(version_dictionary[version]["aspects"]);
 		$.each(version_dictionary[version]["aspects"], function(aspect, value){
 			count[value]=0;
 		});
-		console.log(count);
 		$('#'+id).remove();
 		$("body").append('<ul id="'+id+'" class="aspectlist result" title="'+title+'"></ul>');
 		$('#'+id).dialog({
@@ -211,7 +209,6 @@ $(function(){
 			count[e]++;
 			$('#'+id).append('<li class="aspect_result"><img src="aspects/color/' + translate[e] + '.png" /><div>' + translate[e] + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
 		});
-		console.log(count);
 		$('#'+id).children().last().remove();
 		$('#'+id).append('<li id="aspects_used">Aspects Used</li>');
 		var used = '<ul id="aspects_used_list">';
