@@ -32,7 +32,7 @@
 	margin:8px 5px 0 0;
 	max-width:64px;
 }
-.aspectlist .desc, #combination_box .desc {
+.aspectlist .desc {
 	overflow: hidden;
 	font-weight:normal;
 	line-height: 1.4em;
@@ -82,8 +82,11 @@
 	line-height: 30px;
 	margin: 0 6px;
 }
-.name {
+.name, #combination_box .desc {
 	margin-left: 37px;
+}
+#combination_box .desc {
+	font-size:small;
 }
 #aspects_used {
 	border-top:2px solid #c2c2c2;

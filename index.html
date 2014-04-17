@@ -8,7 +8,9 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="jquery.ddslick.min.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="translation_dictionary.js"></script>
 	<script type="text/javascript" src="version_dictionary.js"></script>
+	<script type="text/javascript" src="addon_dictionary.js"></script>
 	<script type="text/javascript" src="tcresearch.js"></script>
 	<link rel="stylesheet" href="tcresearch.css">
 </head>
@@ -23,12 +25,12 @@
 				</select>
 			</td>
 		</tr>
-		<tr><td>Addons:</td><td><input type="checkbox" id="fm" /> <label for="fm">Forbidden Magic</label> <input type="checkbox" id="mb" /> <label for="mb">Magic Bees</label><input type="button" id="sel_all" value="Select All"><input type="button" id="desel_all" value="Deselect All"></td></tr> 
-		<tr><td>Available<br/>Aspects:</td><td><ul id="avail" class="aspectlist"></ul></td></tr>
 		<tr><td>From:</td><td><div id="fromSel"></div></td></tr>
 		<tr><td>To:</td><td><div id="toSel"></div></td></tr>
-		<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="0" style="width:140px" /><!-- <select id="steps"></select> --></td></tr>
+		<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="1" style="width:140px" /></td></tr>
 		<tr><td></td><td><input id="find_connection" type="button" value="Find Connection" /><input id="close_results" type="button" value="Close all results" /></td></tr>
+		<tr><td>Addons:</td><td id="addons"></td></tr> 
+		<tr><td>Available<br/>Aspects:</td><td><input type="button" id="sel_all" value="Select All Aspects"><input type="button" id="desel_all" value="Deselect All Aspects"><ul id="avail" class="aspectlist"></ul></td></tr>
 	</table>
 
 	<h3 style="margin-top:100px">Help</h3>
