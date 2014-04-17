@@ -139,7 +139,7 @@ $(function(){
 			$("#combination_box").hide();
 		}
 	});
-	$(".aspectlist").mouseleave(function() {
+	$(".aspectlist").on("mouseleave", ".aspect", function() {
 		$("#combination_box").hide();
 	});
 	$("#close_results").click(function(){

@@ -26,6 +26,9 @@
 	color:#000;
 	font-weight:bold;
 }
+#avail > li {
+	width:25%;
+}
 .aspectlist > li img {
 	vertical-align:middle;
 	float:left;
