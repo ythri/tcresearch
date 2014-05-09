@@ -145,6 +145,15 @@ $(function(){
 	$("#close_results").click(function(){
 		$(".result").dialog("close");
 	});
+	
+	function aspectSort(a, b) {
+		if (a.text < b.text) {
+			return -1;
+		} else {
+			return 1;
+		}
+	}
+	
 	function reset_aspects() {
 		aspects = $.extend([], version_dictionary[version]["base_aspects"]);
 		combinations = $.extend(true, {}, version_dictionary[version]["combinations"]);
@@ -164,6 +173,8 @@ $(function(){
 		aspects.forEach(function(aspect) {
 			ddData.push({text: translate[aspect], value: aspect, description: "(" + aspect + ")", imageSrc: "aspects/color/" + translate[aspect] + ".png"});
 		});
+		
+		ddData = ddData.sort(aspectSort)
 		$('#fromSel').ddslick({
 			data: ddData,
 			defaultSelectedIndex: 0,
