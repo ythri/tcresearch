@@ -14,12 +14,3 @@ If your are unhappy with the path you got, because you do not have access to tho
 simply disable those aspects from Available Aspects:. The script will then try to find paths without these. Note that 
 this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of 
 those, the script will try to find the shortest path using the minimal number of disabled aspects.
-
-News
-----
-
-March 13: Holidays, yay. If anything changes during the next weeks while I'm gone, for example Azanor updates to 
-Thaumcraft 4.1.0h or 4.2 (you never know), feel free to fork this repository, add the changes, and post your fixed 
-version on the ftb forums/reddit/etc. The combinations should be really easy to change (its just a JSON object), 
-as should be adding or removing aspects (all of this only requires changes to the three variables `combinations`, 
-`translate`, and `aspects`). See you soon.
