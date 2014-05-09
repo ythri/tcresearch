@@ -149,8 +149,10 @@ $(function(){
 	function aspectSort(a, b) {
 		if (a.text < b.text) {
 			return -1;
-		} else {
+		} else if (a.text > b.text) {
 			return 1;
+		} else {
+			return 0;
 		}
 	}
 	
