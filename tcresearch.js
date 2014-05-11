@@ -20,7 +20,9 @@ $(function(){
 	function aspectSort(a, b) {
 		return (a == b) ? 0 : (translate[a]<translate[b]) ? -1 : 1;
 	}
-
+	function ddDataSort(a, b) {
+		return (a.text == b.text) ? 0 : (a.text<b.text) ? -1 : 1;
+	}
 	function find(from, to, steps) {
 		function search(queue, to, visited) {
 			while (!queue.isEmpty()) {
@@ -175,6 +177,7 @@ $(function(){
 		aspects.forEach(function(aspect) {
 			ddData.push({text: translate[aspect], value: aspect, description: "(" + aspect + ")", imageSrc: "aspects/color/" + translate[aspect] + ".png"});
 		});
+		ddData.sort(ddDataSort);
 		$('#fromSel').ddslick({
 			data: ddData,
 			defaultSelectedIndex: 0,
