@@ -17,6 +17,9 @@ $(function(){
 		addConnection(aspect1, aspect2);
 		addConnection(aspect2, aspect1);
 	}
+	function aspectSort(a, b) {
+		return (a == b) ? 0 : (translate[a]<translate[b]) ? -1 : 1;
+	}
 
 	function find(from, to, steps) {
 		function search(queue, to, visited) {
@@ -47,15 +50,19 @@ $(function(){
 	}
 	function push_addons(aspects, combinations) {
 		addon_aspects = [];
+		addon_array = addon_dictionary;
 		$.each(addon_dictionary, function(key, addon_info){
 			$("#addons").append('<input type="checkbox" class="addon_toggle" id="'+key+'" /> <label for="'+key+'">'+addon_info["name"]+'</label>');
 			$.each(addon_info["aspects"], function(number, aspect){
-				aspects.push(aspect);
 				addon_aspects.push(aspect);
 			});
 			$.each(addon_info["combinations"], function(combination_name, combination){
 				combinations[combination_name]=combination;
 			});
+		});
+		addon_aspects = addon_aspects.sort(aspectSort);
+		$.each(addon_aspects, function(number, aspect){
+			aspects.push(aspect);
 		});
 	}
 	function toggle(obj) {
@@ -146,16 +153,6 @@ $(function(){
 		$(".result").dialog("close");
 	});
 	
-	function aspectSort(a, b) {
-		if (a.text < b.text) {
-			return -1;
-		} else if (a.text > b.text) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
-	
 	function reset_aspects() {
 		aspects = $.extend([], version_dictionary[version]["base_aspects"]);
 		combinations = $.extend(true, {}, version_dictionary[version]["combinations"]);
@@ -163,9 +160,12 @@ $(function(){
 		$('#fromSel').ddslick("destroy");
 		$('#toSel').ddslick("destroy");
 		$(".addon_toggle").prop('checked', false);
+		tier_aspects = [];
 		$.each(combinations, function(aspect, value){
-			aspects.push(aspect);
+			tier_aspects.push(aspect);
 		});
+		tier_aspects = tier_aspects.sort(aspectSort);
+		aspects = aspects.concat(tier_aspects);
 		push_addons(aspects, combinations);
 		aspects.forEach(function(aspect) {
 			$('#avail').append('<li class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></li>');
@@ -175,8 +175,6 @@ $(function(){
 		aspects.forEach(function(aspect) {
 			ddData.push({text: translate[aspect], value: aspect, description: "(" + aspect + ")", imageSrc: "aspects/color/" + translate[aspect] + ".png"});
 		});
-		
-		ddData = ddData.sort(aspectSort)
 		$('#fromSel').ddslick({
 			data: ddData,
 			defaultSelectedIndex: 0,
