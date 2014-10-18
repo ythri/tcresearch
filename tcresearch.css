@@ -21,7 +21,7 @@
 	color:#333;
 	cursor:pointer;
 }
-#avail > li:hover {
+.aspectlist > li.aspect:hover {
 	background:#f3f3f3;
 	color:#000;
 	font-weight:bold;
