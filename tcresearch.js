@@ -185,7 +185,7 @@ $(function(){
 		ddData.sort(ddDataSort);
 		function format(d) {
 			var aspect = d.id;
-			return '<div class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></div>'
+			return '<div class="aspect" id="'+aspect+'"><img style="margin: 4px 5px 0 0" src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></div>'
 		}
 		$('#toSel,#fromSel').select2({
 			data: ddData,
