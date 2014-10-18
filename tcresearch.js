@@ -134,7 +134,7 @@ $(function(){
 	$(".aspectlist").on( "click", ".aspect", function(){
 		toggle(this);
 	});
-	$(".aspectlist").on("mouseenter", ".aspect", function() {
+	$("body").on("mouseenter", ".aspectlist .aspect", function() {
 		var aspect = $(this).attr("id");
 		if (aspect!="fire"&&aspect!="water"&&aspect!="order"&&aspect!="air"&&aspect!="entropy"&&aspect!="earth"){
 			var combination = combinations[aspect];
@@ -148,7 +148,7 @@ $(function(){
 			$("#combination_box").hide();
 		}
 	});
-	$(".aspectlist").on("mouseleave", ".aspect", function() {
+	$("body").on("mouseleave", ".aspectlist .aspect", function() {
 		$("#combination_box").hide();
 	});
 	$("#close_results").click(function(){
@@ -223,7 +223,7 @@ $(function(){
 				aspect_count[e]++;
 				step_count++;
 			}
-			$('#'+id).append('<li class="aspect_result"><img src="aspects/color/' + translate[e] + '.png" /><div>' + translate[e] + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
+			$('#'+id).append('<li class="aspect_result aspect" id="' + e + '"><img src="aspects/color/' + translate[e] + '.png" /><div>' + translate[e] + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
 		});
 		$('#'+id).children().last().remove();
 		$('#'+id).append('<li id="aspects_used">Aspects Used</li>');

@@ -66,6 +66,7 @@
 	margin:4px 5px 0 0;
 }
 #combination_box {
+	z-index: 500;
 	background:#d6d6d6;
 	position:absolute;
 	display:table-cell;
