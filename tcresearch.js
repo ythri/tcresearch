@@ -137,7 +137,7 @@ $(function(){
 		$(".result").dialog("close");
 		reset_aspects();
 	});
-	$(".aspectlist").on( "click", ".aspect", function(){
+	$("#avail").on( "click", ".aspect", function(){
 		toggle(this);
 	});
 	$("body").on("mouseenter", ".aspectlist .aspect", function() {
