@@ -180,7 +180,8 @@ $(function(){
 		toggle_addons(addon_aspects);
 		var ddData = [];
 		aspects.forEach(function(aspect) {
-			ddData.push({text: translate[aspect], id: aspect});
+			//I have to use the 'aspect' as 'text' because i need it in the matcher function to access the translated version of it.
+			ddData.push({text: aspect, id: aspect});
 		});
 		ddData.sort(ddDataSort);
 		function format(d) {
@@ -193,6 +194,12 @@ $(function(){
 		    formatSelection: format,
 		    width: '200px',
 		    allowClear:false,
+		    sortResults: function(results, container, query) {
+    			return results.sort(function(a, b) {
+    				console.log(a,b)
+    				return translate[a.id].localeCompare(translate[b.id]);
+    			});
+        	},
 		    matcher: function(search,text) { return text.toUpperCase().indexOf(search.toUpperCase())>=0 || translate[text].toUpperCase().indexOf(search.toUpperCase())>=0 }
 		});
 		$('#toSel,#fromSel').select2("val", "air");
