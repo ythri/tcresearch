@@ -180,7 +180,7 @@ $(function(){
 		toggle_addons(addon_aspects);
 		var ddData = [];
 		aspects.forEach(function(aspect) {
-			ddData.push({text: aspect, id: aspect});
+			ddData.push({text: translate[aspect], id: aspect});
 		});
 		ddData.sort(ddDataSort);
 		function format(d) {
