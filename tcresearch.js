@@ -165,8 +165,7 @@ $(function(){
 		aspects = $.extend([], version_dictionary[version]["base_aspects"]);
 		combinations = $.extend(true, {}, version_dictionary[version]["combinations"]);
 		$("#avail, #addons").empty();
-		$('#fromSel').ddslick("destroy");
-		$('#toSel').ddslick("destroy");
+		$('#fromSel,#toSel').select2('destroy')
 		$(".addon_toggle").prop('checked', false);
 		tier_aspects = [];
 		$.each(combinations, function(aspect, value){
@@ -181,21 +180,22 @@ $(function(){
 		toggle_addons(addon_aspects);
 		var ddData = [];
 		aspects.forEach(function(aspect) {
-			ddData.push({text: formatAspectName(translate[aspect]), value: aspect, description: "(" + aspect + ")", imageSrc: "aspects/color/" + translate[aspect] + ".png"});
+			ddData.push({text: aspect, id: aspect});
 		});
 		ddData.sort(ddDataSort);
-		$('#fromSel').ddslick({
+		function format(d) {
+			var aspect = d.id;
+			return '<div class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></div>'
+		}
+		$('#toSel,#fromSel').select2({
 			data: ddData,
-			defaultSelectedIndex: 0,
-			height: 300,
-			width: 170
+			formatResult: format,
+		    formatSelection: format,
+		    width: '200px',
+		    allowClear:false,
+		    matcher: function(search,text) { return text.toUpperCase().indexOf(search.toUpperCase())>=0 || translate[text].toUpperCase().indexOf(search.toUpperCase())>=0 }
 		});
-		$('#toSel').ddslick({
-			data: ddData,
-			defaultSelectedIndex: 0,
-			height: 300,
-			width: 170
-		});
+		$('#toSel,#fromSel').select2("val", "air");
 		graph={};
 		for (compound in combinations) {
 			connect(compound, combinations[compound][0]);
@@ -203,8 +203,8 @@ $(function(){
 		}
 	}
 	function run() {
-		var fromSel = $('#fromSel').data('ddslick').selectedData.value;
-		var toSel = $('#toSel').data('ddslick').selectedData.value;
+		var fromSel = $('#fromSel').select2("val");
+		var toSel = $('#toSel').select2("val");
 		var path = find(fromSel, toSel, steps.spinner("value"));
 		var id = fromSel+'to'+toSel;
 		var title = formatAspectName(translate[fromSel])+' &rarr; '+formatAspectName(translate[toSel]);

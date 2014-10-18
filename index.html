@@ -6,13 +6,19 @@
 	<script type="text/javascript" src="buckets-minified.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="jquery.ddslick.min.js"></script>
+	<script type="text/javascript" src="select2.min.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="select2.css">
 	<script type="text/javascript" src="translation_dictionary.js"></script>
 	<script type="text/javascript" src="version_dictionary.js"></script>
 	<script type="text/javascript" src="addon_dictionary.js"></script>
 	<script type="text/javascript" src="tcresearch.js"></script>
 	<link rel="stylesheet" href="tcresearch.css">
+	<style type="text/css">
+	.select2-container .select2-choice {
+		height: 50px;
+	}
+	</style>
 </head>
 <body>
 	<h2>Thaumcraft 4.1 Research Helper</h2>
@@ -25,8 +31,8 @@
 				</select>
 			</td>
 		</tr>
-		<tr><td>From:</td><td><div id="fromSel"></div></td></tr>
-		<tr><td>To:</td><td><div id="toSel"></div></td></tr>
+		<tr><td>From:</td><td><input type=hidden id="fromSel"></input></td></tr>
+		<tr><td>To:</td><td><input type=hidden id="toSel"></input></td></tr>
 		<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="1" style="width:140px" /></td></tr>
 		<tr><td></td><td><input id="find_connection" type="button" value="Find Connection" /><input id="close_results" type="button" value="Close all results" /></td></tr>
 		<tr><td>Addons:</td><td id="addons"></td></tr> 

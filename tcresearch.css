@@ -29,19 +29,19 @@
 #avail > li {
 	width:25%;
 }
-.aspectlist > li img {
+.aspect img {
 	vertical-align:middle;
 	float:left;
 	margin:8px 5px 0 0;
 	max-width:64px;
 }
-.aspectlist .desc {
+.aspect .desc {
 	overflow: hidden;
 	font-weight:normal;
 	line-height: 1.4em;
 	font-size:small;
 }
-.aspectlist > li > div {
+.aspect > div {
 	text-align:left;
 }
 #avail > li.unavail {
