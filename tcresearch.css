@@ -22,7 +22,7 @@
 	cursor:pointer;
 }
 .aspectlist > li.aspect:hover {
-	background:#f3f3f3;
+	background:#DDD;
 	color:#000;
 	font-weight:bold;
 }
@@ -45,11 +45,11 @@
 	text-align:left;
 }
 #avail > li.unavail {
-	background:#f3f3f3;
+	background:#BBB;
 	color:#999;
 }
 #avail > li.unavail:hover {
-	background:#e8e8e8;
+	background:#999;
 }
 #close_results {
 	float:right;
