@@ -21,35 +21,35 @@
 	color:#333;
 	cursor:pointer;
 }
-#avail > li:hover {
-	background:#f3f3f3;
+.aspectlist > li.aspect:hover {
+	background:#DDD;
 	color:#000;
 	font-weight:bold;
 }
 #avail > li {
 	width:25%;
 }
-.aspectlist > li img {
+.aspect img {
 	vertical-align:middle;
 	float:left;
 	margin:8px 5px 0 0;
 	max-width:64px;
 }
-.aspectlist .desc {
+.aspect .desc {
 	overflow: hidden;
 	font-weight:normal;
 	line-height: 1.4em;
 	font-size:small;
 }
-.aspectlist > li > div {
+.aspect > div {
 	text-align:left;
 }
 #avail > li.unavail {
-	background:#f3f3f3;
+	background:#BBB;
 	color:#999;
 }
 #avail > li.unavail:hover {
-	background:#e8e8e8;
+	background:#999;
 }
 #close_results {
 	float:right;
@@ -66,6 +66,7 @@
 	margin:4px 5px 0 0;
 }
 #combination_box {
+	z-index: 500;
 	background:#d6d6d6;
 	position:absolute;
 	display:table-cell;

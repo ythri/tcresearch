@@ -84,6 +84,12 @@ $(function(){
 		option.textContent = text;
 		return option;
 	}
+	
+	function formatAspectName(string)
+	{
+		//http://stackoverflow.com/a/1026087 Capitalize the first letter of string in JavaScript
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
 
 	fromSel = document.getElementById("fromSel");
 	toSel = document.getElementById("toSel");
@@ -131,16 +137,16 @@ $(function(){
 		$(".result").dialog("close");
 		reset_aspects();
 	});
-	$(".aspectlist").on( "click", ".aspect", function(){
+	$("#avail").on( "click", ".aspect", function(){
 		toggle(this);
 	});
-	$(".aspectlist").on("mouseenter", ".aspect", function() {
+	$("body").on("mouseenter", ".aspectlist .aspect", function() {
 		var aspect = $(this).attr("id");
 		if (aspect!="fire"&&aspect!="water"&&aspect!="order"&&aspect!="air"&&aspect!="entropy"&&aspect!="earth"){
 			var combination = combinations[aspect];
-			$("#combination_box #left").html('<img src="aspects/color/' + translate[combination[0]] + '.png" /><div class="name">' + translate[combination[0]] + '</div><div class="desc">' + combination[0] + '</div>');
-			$("#combination_box #right").html('<img src="aspects/color/' + translate[combination[1]] + '.png" /><div class="name">' + translate[combination[1]] + '</div><div class="desc">' + combination[1] + '</div>');
-			$("#combination_box #equals").html('<img src="aspects/color/' + translate[aspect] + '.png" /><div class="name">' + translate[aspect] + '</div><div class="desc">' + aspect + '</div>');
+			$("#combination_box #left").html('<img src="aspects/color/' + translate[combination[0]] + '.png" /><div class="name">' + formatAspectName(translate[combination[0]]) + '</div><div class="desc">' + combination[0] + '</div>');
+			$("#combination_box #right").html('<img src="aspects/color/' + translate[combination[1]] + '.png" /><div class="name">' + formatAspectName(translate[combination[1]]) + '</div><div class="desc">' + combination[1] + '</div>');
+			$("#combination_box #equals").html('<img src="aspects/color/' + translate[aspect] + '.png" /><div class="name">' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div>');
 			$(this).mousemove(function(e) {
 				$("#combination_box").css({left:e.pageX+10, top:e.pageY-100}).show();
 			});
@@ -148,7 +154,7 @@ $(function(){
 			$("#combination_box").hide();
 		}
 	});
-	$(".aspectlist").on("mouseleave", ".aspect", function() {
+	$("body").on("mouseleave", ".aspectlist .aspect", function() {
 		$("#combination_box").hide();
 	});
 	$("#close_results").click(function(){
@@ -159,8 +165,7 @@ $(function(){
 		aspects = $.extend([], version_dictionary[version]["base_aspects"]);
 		combinations = $.extend(true, {}, version_dictionary[version]["combinations"]);
 		$("#avail, #addons").empty();
-		$('#fromSel').ddslick("destroy");
-		$('#toSel').ddslick("destroy");
+		$('#fromSel,#toSel').select2('destroy')
 		$(".addon_toggle").prop('checked', false);
 		tier_aspects = [];
 		$.each(combinations, function(aspect, value){
@@ -170,26 +175,34 @@ $(function(){
 		aspects = aspects.concat(tier_aspects);
 		push_addons(aspects, combinations);
 		aspects.forEach(function(aspect) {
-			$('#avail').append('<li class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></li>');
+			$('#avail').append('<li class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></li>');
 		});
 		toggle_addons(addon_aspects);
 		var ddData = [];
 		aspects.forEach(function(aspect) {
-			ddData.push({text: translate[aspect], value: aspect, description: "(" + aspect + ")", imageSrc: "aspects/color/" + translate[aspect] + ".png"});
+			//I have to use the 'aspect' as 'text' because i need it in the matcher function to access the translated version of it.
+			ddData.push({text: aspect, id: aspect});
 		});
 		ddData.sort(ddDataSort);
-		$('#fromSel').ddslick({
+		function format(d) {
+			var aspect = d.id;
+			return '<div class="aspect" id="'+aspect+'"><img style="margin: 4px 5px 0 0" src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></div>'
+		}
+		$('#toSel,#fromSel').select2({
 			data: ddData,
-			defaultSelectedIndex: 0,
-			height: 300,
-			width: 170
+			formatResult: format,
+		    formatSelection: format,
+		    width: '200px',
+		    allowClear:false,
+		    sortResults: function(results, container, query) {
+    			return results.sort(function(a, b) {
+    				console.log(a,b)
+    				return translate[a.id].localeCompare(translate[b.id]);
+    			});
+        	},
+		    matcher: function(search,text) { return text.toUpperCase().indexOf(search.toUpperCase())>=0 || translate[text].toUpperCase().indexOf(search.toUpperCase())>=0 }
 		});
-		$('#toSel').ddslick({
-			data: ddData,
-			defaultSelectedIndex: 0,
-			height: 300,
-			width: 170
-		});
+		$('#toSel,#fromSel').select2("val", "air");
 		graph={};
 		for (compound in combinations) {
 			connect(compound, combinations[compound][0]);
@@ -197,11 +210,11 @@ $(function(){
 		}
 	}
 	function run() {
-		var fromSel = $('#fromSel').data('ddslick').selectedData.value;
-		var toSel = $('#toSel').data('ddslick').selectedData.value;
+		var fromSel = $('#fromSel').select2("val");
+		var toSel = $('#toSel').select2("val");
 		var path = find(fromSel, toSel, steps.spinner("value"));
 		var id = fromSel+'to'+toSel;
-		var title = translate[fromSel]+' &rarr; '+translate[toSel];
+		var title = formatAspectName(translate[fromSel])+' &rarr; '+formatAspectName(translate[toSel]);
 		var step_count=0;
 		var aspect_count={};
 		$.each(aspects, function(aspect, value){
@@ -223,7 +236,7 @@ $(function(){
 				aspect_count[e]++;
 				step_count++;
 			}
-			$('#'+id).append('<li class="aspect_result"><img src="aspects/color/' + translate[e] + '.png" /><div>' + translate[e] + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
+			$('#'+id).append('<li class="aspect_result aspect" id="' + e + '"><img src="aspects/color/' + translate[e] + '.png" /><div>' + formatAspectName(translate[e]) + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
 		});
 		$('#'+id).children().last().remove();
 		$('#'+id).append('<li id="aspects_used">Aspects Used</li>');
