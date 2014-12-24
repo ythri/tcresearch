@@ -18,5 +18,16 @@ var addon_dictionary = {
 		"combinations":{
 			"time": ["void", "order"]
 		} 
-	}
+	},
+  "gt": {
+    "name": "Gregtech",
+    "aspects": ["electricity", "magnetism", "cheatiness", "radioactivity", "stronito"],
+    "combinations": {
+      "electricity": ["energy", "mechanism"],
+      "magnetism": ["metal", "travel"],
+      "cheatiness": ["mine", "greed"],
+      "radioactivity": ["light", "energy"],
+      "stronito": ["entropy", "mind"]
+    }
+  }
 };

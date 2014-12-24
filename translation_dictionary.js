@@ -56,5 +56,10 @@ var translate = {
 	"sloth": "desidia",
 	"pride": "superbia",
 	"lust": "luxuria",
-	"time": "tempus"
+	"time": "tempus",
+	"electricity": "electrum",
+	"magnetism": "magneto",
+	"cheatiness": "nebrisum",
+	"radioactivity": "radio",
+	"stronito": "stronito"
 };
