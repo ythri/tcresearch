@@ -216,5 +216,65 @@ var version_dictionary = {
 			"mechanism": ["motion", "tool"],
 			"trap": ["motion", "entropy"]
 		}
+	},
+	"4.2.3.3":{
+		"base_aspects":[
+		"air",
+		"earth",
+		"fire",
+		"water",
+		"order",
+		"entropy"
+		],
+		"combinations":{
+			
+			//secondary
+		
+			"void": ["air", "entropy"],
+			"light": ["air", "fire"],
+			"weather": ["air", "water"],
+			"motion": ["air", "order"],
+			"cold": ["fire", "entropy"],
+			"crystal": ["earth", "order"],
+			"life": ["water", "earth"],
+			"poison": ["water", "entropy"],
+			"energy": ["order", "fire"],
+			"exchange": ["entropy", "order"],
+			
+			//Tertiary
+			
+			"metal": ["earth", "crystal"],
+			"death": ["life", "entropy"],
+			"flight": ["air", "motion"],
+			"darkness": ["void", "light"],
+			"soul": ["life", "death"],
+			"heal": ["order", "life"],
+			"travel": ["motion", "earth"],
+			"eldritch": ["void", "darkness"],
+			"magic": ["void", "energy"],
+			"aura": ["magic", "air"],
+			"taint": ["magic", "entropy"],
+			"slime": ["life", "water"],
+			"plant": ["life", "earth"],
+			"tree": ["air", "plant"],
+			"beast": ["motion", "life"],
+			"flesh": ["death", "beast"],
+			"undead": ["motion", "death"],
+			"mind": ["fire", "soul"],
+			"senses": ["air", "soul"],
+			"man": ["beast", "mind"],
+			"crop": ["plant", "man"],
+			"mine": ["man", "earth"],
+			"tool": ["man", "order"],
+			"harvest": ["crop", "tool"],
+			"weapon": ["tool", "fire"],
+			"armor": ["tool", "earth"],
+			"hunger": ["life", "void"],
+			"greed": ["man", "hunger"],
+			"craft": ["man", "tool"],
+			"cloth": ["tool", "beast"],
+			"mechanism": ["motion", "tool"],
+			"trap": ["motion", "entropy"]
+		}
 	}
 };
