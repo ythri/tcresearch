@@ -5,7 +5,7 @@ var addon_dictionary = {
 		"combinations":{
 			"wrath": ["weapon", "fire"],
 			"nether": ["fire", "magic"],
-			"gluttony": ["hunger", "hunger"],
+			"gluttony": ["hunger", "void"],
 			"envy": ["senses", "hunger"],
 			"sloth": ["trap", "soul"],
 			"pride": ["flight", "void"],
