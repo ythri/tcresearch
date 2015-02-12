@@ -5,7 +5,7 @@ var addon_dictionary = {
 		"combinations":{
 			"wrath": ["weapon", "fire"],
 			"nether": ["fire", "magic"],
-			"gluttony": ["hunger", "hunger"],
+			"gluttony": ["hunger", "void"],
 			"envy": ["senses", "hunger"],
 			"sloth": ["trap", "soul"],
 			"pride": ["flight", "void"],
@@ -21,7 +21,7 @@ var addon_dictionary = {
 	},
   "gt": {
     "name": "Gregtech",
-    "aspects": ["electricity", "magnetism", "cheatiness", "radioactivity", "stronito"],
+    "aspects": ["electricity", "magnetism", "cheatiness", "radioactivity", "stupidity"],
     "combinations": {
       "electricity": ["energy", "mechanism"],
       "magnetism": ["metal", "travel"],
