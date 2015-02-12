@@ -21,7 +21,7 @@ var addon_dictionary = {
 	},
   "gt": {
     "name": "Gregtech",
-    "aspects": ["electricity", "magnetism", "cheatiness", "radioactivity", "stronito"],
+    "aspects": ["electricity", "magnetism", "cheatiness", "radioactivity", "stupidity"],
     "combinations": {
       "electricity": ["energy", "mechanism"],
       "magnetism": ["metal", "travel"],
