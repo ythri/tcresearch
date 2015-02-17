@@ -27,7 +27,7 @@ var addon_dictionary = {
       "magnetism": ["metal", "travel"],
       "cheatiness": ["mine", "greed"],
       "radioactivity": ["light", "energy"],
-      "stronito": ["entropy", "mind"]
+      "stupidity": ["entropy", "mind"]
     }
   }
 };
