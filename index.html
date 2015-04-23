@@ -24,24 +24,76 @@
 <body>
 <div class="row">
 	<div clsas="col-md-10 col-md-offset-1 col-xs-12">
-		<h2>Thaumcraft 4.x Research Helper</h2>
 		<div id="combination_box"><div id="left"></div><span class="operator">+</span><div id="right"></div><span class="operator">=</span><div id="equals"></div></div>
-		<table class="table-responsive">
-			<tr>
-				<td>Version:</td>
-				<td>
-					<select id="version">
-					</select>
-				</td>
-			</tr>
-			<tr><td>From:</td><td><input type=hidden id="fromSel"></input></td></tr>
-			<tr><td>To:</td><td><input type=hidden id="toSel"></input></td></tr>
-			<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="1" style="width:140px" /></td></tr>
-			<tr><td></td><td><input id="find_connection" type="button" value="Find Connection" /><input id="close_results" type="button" value="Close all results" /></td></tr>
-			<tr><td>Addons:</td><td id="addons"></td></tr> 
-			<tr><td>Available<br/>Aspects:</td><td><input type="button" id="sel_all" value="Select All Aspects"><input type="button" id="desel_all" value="Deselect All Aspects"><ul id="avail" class="aspectlist"></ul></td></tr>
-		</table>
-	
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2>Thaumcraft 4.x Research Helper</h2>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<div class="col-xs-3">
+							From:
+						</div>
+						<div class="col-xs-9">
+							<input type=hidden id="fromSel"></input>
+						</div>
+					</li>
+					<li class="list-group-item">
+						<div class="col-xs-3">
+							To:
+						</div>
+						<div class="col-xs-9">
+							<input type=hidden id="toSel"></input>
+						</div>
+					</li>
+					<li class="list-group-item">
+						<div class="col-xs-3">
+							Min Steps:
+						</div>
+						<div class="col-xs-9">
+							<input id="spinner" name="value" value="1" style="width:140px" />
+						</div>
+					</li>
+					<li class="list-group-item">
+						<div class="col-xs-6">
+							<input id="find_connection" type="button" value="Find Connection" />
+						</div>
+						<div class="col-xs-6">
+							<input id="close_results" type="button" value="Close all results" />
+						</div>
+					</li>
+					<li class="list-group-item">
+						<div class="col-xs-3">
+							Addons: 
+						</div>
+						<div class="col-xs-9" id="addons">
+
+						</div>
+					</li>
+					<li class="list-group-item">
+						<div class="col-xs-3">
+							Available Aspects
+						</div>
+						<div class="col-xs-4">
+							<input type="button" id="sel_all" value="Select All Aspects">
+						</div>
+						<div class="col-xs-5">
+							<input type="button" id="desel_all" value="Deselect All Aspects">
+						</div>
+					</li>
+					<li class="list-group-item">
+						<div class="col-xs-12">
+							<ul id="avail" class="aspectlist"></ul>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="panel-footer">
+				
+			</div>
+		</div>
 		<h3 style="margin-top:100px">Help</h3>
 		<p>This script helps you with your Thaumcraft 4.x research. If you have a research note with two aspects that you don't know how to connect, simply choose them in the dropdown list above (<strong>From:</strong> and <strong>To:</strong>). Additionally, choose the minimum number of steps between those two aspects. If in your research note, the two aspects have two blank spaces between them, choose the value 2 for <strong>Min. Steps</strong>. Then click <strong>Find Connection</strong> and the script will search for the shortest path (well, with at least the minimum length) that connects the two aspects. Note that sometimes the length of any path is longer then the given minimum, but this should not be a problem for your research note.</p>
 		<p>If you are unhappy with the path you got, because you do not have access to those aspects yet or they are quite rare, simply disable those aspects from <strong>Available Aspects:</strong>. The script will then try to find paths without these. Note that this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of those, the script will try to find the shortest path using the minimal number of disabled aspects.</p>
