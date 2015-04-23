@@ -54,7 +54,7 @@ $(function(){
 		addon_aspects = [];
 		addon_array = addon_dictionary;
 		$.each(addon_dictionary, function(key, addon_info){
-			$("#addons").append('<input type="checkbox" class="addon_toggle" id="'+key+'" /> <label for="'+key+'">'+addon_info["name"]+'</label>');
+			$("#addons").append('<input type="checkbox" class="addon_toggle" id="'+key+'" /> &nbsp;<label for="'+key+'">'+addon_info["name"]+'</label><br/>');
 			$.each(addon_info["aspects"], function(number, aspect){
 				addon_aspects.push(aspect);
 			});
