@@ -23,6 +23,15 @@
 	label:after {
 		content: "\A";
 	}
+	
+	.btn-vertical-center h3 {
+		  padding: 11px 16px; /* Extra pixel top and bottom for border on buttons */
+		  font-size: 18px;
+		  line-height: 1.33;
+		  border-radius: 6px;
+		  margin: 0;
+	}
+
 	</style>
 </head>
 <body>
@@ -70,8 +79,8 @@
 						<div class="col-md-2 col-xs-3">
 							<h3>Available Aspects:</h3>
 						</div>
-						<div class="col-md-10 col-xs-9">
-							<input type="button" class="btn btn-success" id="sel_all" value="Select All Aspects"><br/>
+						<div class="col-md-10 col-xs-9 btn-group btn-vertical-center">
+							<input type="button" class="btn btn-success" id="sel_all" value="Select All Aspects">
 							<input type="button" class="btn btn-danger" id="desel_all" value="Deselect All Aspects">
 						</div>
 					</li>
