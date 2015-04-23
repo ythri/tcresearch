@@ -38,7 +38,7 @@
 				<ul class="list-group">
 					<li class="list-group-item row">
 						<div class="col-md-1 col-xs-3">
-							From:
+							<h3>From:</h3>
 						</div>
 						<div class="col-md-11 col-xs-9">
 							<input type=hidden id="fromSel"></input>
@@ -46,7 +46,7 @@
 					</li>
 					<li class="list-group-item row">
 						<div class="col-md-1 col-xs-3">
-							To:
+							<h3>To:</h3>
 						</div>
 						<div class="col-md-11 col-xs-9">
 							<input type=hidden id="toSel"></input>
@@ -54,7 +54,7 @@
 					</li>
 					<li class="list-group-item row">
 						<div class="col-md-1 col-xs-3">
-							Min Steps:
+							<h3>Min Steps:</h3>
 						</div>
 						<div class="col-xs-3">
 							<input id="spinner" name="value" value="1" style="width:140px" />
@@ -66,7 +66,7 @@
 					</li>
 					<li class="list-group-item row">
 						<div class="col-md-1 col-xs-3">
-							Available Aspects
+							<h3>Available Aspects:</h3>
 						</div>
 						<div class="col-md-11 col-xs-9 btn-group">
 							<input type="button" class="btn btn-success" id="sel_all" value="Select All Aspects">
@@ -75,7 +75,7 @@
 					</li>
 					<li class="list-group-item row">
 						<div class="col-md-1 col-xs-3">
-							Addons: 
+							<h3>Addons:</h3> 
 						</div>
 						<div class="col-md-11 col-xs-9" id="addons">
 
@@ -94,6 +94,7 @@
 				<p>This script helps you with your Thaumcraft 4.x research. If you have a research note with two aspects that you don't know how to connect, simply choose them in the dropdown list above (<strong>From:</strong> and <strong>To:</strong>). Additionally, choose the minimum number of steps between those two aspects. If in your research note, the two aspects have two blank spaces between them, choose the value 2 for <strong>Min. Steps</strong>. Then click <strong>Find Connection</strong> and the script will search for the shortest path (well, with at least the minimum length) that connects the two aspects. Note that sometimes the length of any path is longer then the given minimum, but this should not be a problem for your research note.</p>
 				<p>If you are unhappy with the path you got, because you do not have access to those aspects yet or they are quite rare, simply disable those aspects from <strong>Available Aspects:</strong>. The script will then try to find paths without these. Note that this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of those, the script will try to find the shortest path using the minimal number of disabled aspects.</p>
 				<p style="size:small;color:#666;margin-top:50px;">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" style="color:#55a;">Creative Commons Attribution 4.0 License</a>. Sources can be found in the <a href="https://github.com/ythri/tcresearch/tree/gh-pages" style="color:#55a;">github repository</a>.</p>
+				<p>Modifications were made by Fusty on April 23, 2015.  All changes were cosmetic.</p>
 			</div>
 		</div>
 	</div>
