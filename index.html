@@ -14,34 +14,101 @@
 	<script type="text/javascript" src="addon_dictionary.js"></script>
 	<script type="text/javascript" src="tcresearch.js"></script>
 	<link rel="stylesheet" href="tcresearch.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<style type="text/css">
 	.select2-container .select2-choice {
 		height: 44px;
 	}
+	
+	label:after {
+		content: "\A";
+	}
+	
 	</style>
 </head>
 <body>
-	<h2>Thaumcraft 4.x Research Helper</h2>
-	<div id="combination_box"><div id="left"></div><span class="operator">+</span><div id="right"></div><span class="operator">=</span><div id="equals"></div></div>
-	<table>
-		<tr>
-			<td>Version:</td>
-			<td>
-				<select id="version">
-				</select>
-			</td>
-		</tr>
-		<tr><td>From:</td><td><input type=hidden id="fromSel"></input></td></tr>
-		<tr><td>To:</td><td><input type=hidden id="toSel"></input></td></tr>
-		<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="1" style="width:140px" /></td></tr>
-		<tr><td></td><td><input id="find_connection" type="button" value="Find Connection" /><input id="close_results" type="button" value="Close all results" /></td></tr>
-		<tr><td>Addons:</td><td id="addons"></td></tr> 
-		<tr><td>Available<br/>Aspects:</td><td><input type="button" id="sel_all" value="Select All Aspects"><input type="button" id="desel_all" value="Deselect All Aspects"><ul id="avail" class="aspectlist"></ul></td></tr>
-	</table>
+<div class="container">
+<div class="row">
+	<div clsas="col-md-10 col-md-offset-1 col-xs-12">
+		<div id="combination_box"><div id="left"></div><span class="operator">+</span><div id="right"></div><span class="operator">=</span><div id="equals"></div></div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2>Thaumcraft 4.x Research Helper</h2>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item row">
+						<div class="col-md-2 col-xs-3">
+							<h3>From:</h3>
+						</div>
+						<div class="col-xs-3" style="margin-top:1em;">
+							<select id="version" class="form-control"></select>
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-md-2 col-xs-3">
+							<h3>From:</h3>
+						</div>
+						<div class="col-md-10 col-xs-9">
+							<input type=hidden id="fromSel" onfocus="blur();"></input>
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-md-2 col-xs-3">
+							<h3>To:</h3>
+						</div>
+						<div class="col-md-10 col-xs-9">
+							<input type=hidden id="toSel" onfocus="blur();"></input>
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-md-2 col-xs-3">
+							<h3>Min Steps:</h3>
+						</div>
+						<div class="col-xs-3" style="margin-top:1em;">
+							<input id="spinner"  style="vertical-align:center;" name="value" value="1" style="width:140px" />
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-xs-10 col-xs-offset-1 btn-group">
+							<input id="find_connection" class="btn btn-success" type="button" value="Find Connection" style="width:50%;"/>
+							<input id="close_results" class="btn btn-warning" type="button" value="Close all results" style="width:50%;"/>
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-md-2 col-xs-3">
+							<h3>Available Aspects:</h3>
+						</div>
+						<div class="col-md-3 col-xs-5 btn-group-vertical">
+							<input type="button" class="btn btn-success" id="sel_all" value="Select All Aspects">
+							<input type="button" class="btn btn-danger" id="desel_all" value="Deselect All Aspects">
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-md-2 col-xs-3">
+							<h3>Addons:</h3> 
+						</div>
+						<div class="col-md-10 col-xs-9" id="addons">
 
-	<h3 style="margin-top:100px">Help</h3>
-	<p>This script helps you with your Thaumcraft 4.x research. If you have a research note with two aspects that you don't know how to connect, simply choose them in the dropdown list above (<strong>From:</strong> and <strong>To:</strong>). Additionally, choose the minimum number of steps between those two aspects. If in your research note, the two aspects have two blank spaces between them, choose the value 2 for <strong>Min. Steps</strong>. Then click <strong>Find Connection</strong> and the script will search for the shortest path (well, with at least the minimum length) that connects the two aspects. Note that sometimes the length of any path is longer then the given minimum, but this should not be a problem for your research note.</p>
-	<p>If you are unhappy with the path you got, because you do not have access to those aspects yet or they are quite rare, simply disable those aspects from <strong>Available Aspects:</strong>. The script will then try to find paths without these. Note that this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of those, the script will try to find the shortest path using the minimal number of disabled aspects.</p>
-	<p style="size:small;color:#666;margin-top:50px;">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" style="color:#55a;">Creative Commons Attribution 4.0 License</a>. Sources can be found in the <a href="https://github.com/ythri/tcresearch/tree/gh-pages" style="color:#55a;">github repository</a>.</p>
+						</div>
+					</li>
+					<li class="list-group-item row">
+						<div class="col-md-10 col-md-offset-1 col-xs-12">
+							<ul id="avail" class="aspectlist"></ul>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="panel-footer">
+				<h3 >Help</h3>
+				<p>This script helps you with your Thaumcraft 4.x research. If you have a research note with two aspects that you don't know how to connect, simply choose them in the dropdown list above (<strong>From:</strong> and <strong>To:</strong>). Additionally, choose the minimum number of steps between those two aspects. If in your research note, the two aspects have two blank spaces between them, choose the value 2 for <strong>Min. Steps</strong>. Then click <strong>Find Connection</strong> and the script will search for the shortest path (well, with at least the minimum length) that connects the two aspects. Note that sometimes the length of any path is longer then the given minimum, but this should not be a problem for your research note.</p>
+				<p>If you are unhappy with the path you got, because you do not have access to those aspects yet or they are quite rare, simply disable those aspects from <strong>Available Aspects:</strong>. The script will then try to find paths without these. Note that this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of those, the script will try to find the shortest path using the minimal number of disabled aspects.</p>
+				<p style="size:small;color:#666;margin-top:50px;">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" style="color:#55a;">Creative Commons Attribution 4.0 License</a>. Sources can be found in the <a href="https://github.com/ythri/tcresearch/tree/gh-pages" style="color:#55a;">github repository</a>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 </body>
 </html>

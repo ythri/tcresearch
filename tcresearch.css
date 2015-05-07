@@ -51,9 +51,6 @@
 #avail > li.unavail:hover {
 	background:#999;
 }
-#close_results {
-	float:right;
-}
 .result > li {
 	margin-bottom:10px;
 	text-align:center;
