@@ -1,0 +1,129 @@
+/**
+ * Some variables to keep things ordered
+ */
+.full-height {
+  height: 100%;
+}
+html,
+html body,
+html #main,
+html body #main,
+html .row,
+html body .row,
+html #main .row,
+html body #main .row,
+html .col-xs-12,
+html body .col-xs-12,
+html #main .col-xs-12,
+html body #main .col-xs-12,
+html .row .col-xs-12,
+html body .row .col-xs-12,
+html #main .row .col-xs-12,
+html body #main .row .col-xs-12 {
+  height: 100%;
+}
+/**
+ * Basic styles
+ */
+html {
+  font-size: 62.5%;
+}
+.tb {
+  display: table;
+}
+.tbc {
+  display: table-cell;
+}
+.vam {
+  vertical-align: middle;
+}
+/**
+ * Search styles
+ */
+#search-container {
+  transition: margin-left 0.7s ease-in-out;
+}
+#search-container form label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+#search-container form .select2-container.form-control {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  height: auto;
+}
+#search-container form .form-control,
+#search-container form .btn {
+  border-color: #cccccc;
+}
+#search-container form .input-group-btn + .form-control {
+  border-left: 0;
+  text-align: center;
+}
+/**
+ * Select 2 styles
+ */
+.select2-drop .select2-search {
+  padding: 0 10px;
+}
+.select2-drop .select2-search input {
+  border: 0;
+  border-bottom: 1px solid #cccccc;
+  background-image: none;
+}
+.select2-drop .select2-results::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+.select2-drop .select2-results::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+.select2-drop .select2-results::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
+.select2-container .select2-choice,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice {
+  background-image: none;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+}
+.select2-container .select2-choice .select2-arrow,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice .select2-arrow,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice .select2-arrow {
+  background-image: none;
+  background-color: transparent;
+  border-color: #cccccc;
+}
+.select2-drop .aspect,
+.select2-container .aspect {
+  display: table;
+  padding: 5px 0;
+}
+.select2-drop .aspect img,
+.select2-container .aspect img {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 !important;
+}
+.select2-drop .aspect > div,
+.select2-container .aspect > div {
+  display: inline-block;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+.select2-drop .aspect > div:first-of-type,
+.select2-container .aspect > div:first-of-type {
+  font-weight: bold;
+}
+.select2-drop .aspect .desc,
+.select2-container .aspect .desc {
+  font-size: 85%;
+  font-style: italic;
+}
