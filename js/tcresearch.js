@@ -24,12 +24,14 @@ $(function(){
 		return (a.text == b.text) ? 0 : (a.text<b.text) ? -1 : 1;
 	}
 	function find(from, to, steps) {
+		console.log("_____________", from, to, steps);
 		function search(queue, to, visited) {
 			while (!queue.isEmpty()) {
 				var element = queue.dequeue();
 				var node = element.path.pop();
 				if (!(node in visited) || visited[node].indexOf(element.path.length) < 0) {
 					element.path.push(node);
+					console.log(element.path.length, steps);
 					if (node == to && element.path.length > steps + 1) return element.path;
 					graph[node].forEach(function(entry) {
 						var newpath = element.path.slice();
@@ -94,10 +96,7 @@ $(function(){
 	fromSel = document.getElementById("fromSel");
 	toSel = document.getElementById("toSel");
 	check = document.getElementById("available");
-	steps = $("#spinner").spinner({
-		min: 1,
-		max: 10
-	});
+	steps = $("#steps");
 	reset_aspects();
 	$("#find_connection").click(function(){
 		run();
@@ -211,7 +210,7 @@ $(function(){
 	function run() {
 		var fromSel = $('#fromSel').select2("val");
 		var toSel = $('#toSel').select2("val");
-		var path = find(fromSel, toSel, steps.spinner("value"));
+		var path = find(fromSel, toSel, +steps.val());
 		var id = fromSel+'to'+toSel;
 		var title = formatAspectName(translate[fromSel])+' &rarr; '+formatAspectName(translate[toSel]);
 		var step_count=0;
