@@ -192,7 +192,6 @@ $(function(){
 			data: ddData,
 			formatResult: format,
 		    formatSelection: format,
-		    width: '200px',
 		    allowClear:false,
 		    sortResults: function(results, container, query) {
     			return results.sort(function(a, b) {
