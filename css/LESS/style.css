@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600,400);
 /**
  * Some variables to keep things ordered
  */
@@ -25,11 +26,13 @@ html body #main .row .col-xs-12 {
 /**
  * Basic styles
  */
-html {
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 62.5%;
 }
 .tb {
   display: table;
+  margin: 0 auto;
 }
 .tbc {
   display: table-cell;
@@ -126,4 +129,113 @@ html {
 .select2-container .aspect .desc {
   font-size: 85%;
   font-style: italic;
+}
+/**
+ * Search Results styles
+ */
+#search-results {
+  display: none;
+  overflow-y: auto;
+}
+#search-results::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+#search-results::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+#search-results::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
+.search-result {
+  margin-top: 20px;
+  opacity: 0;
+  width: 100%;
+  padding: 15px 15px 10px 15px;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.search-result .close-result {
+  position: absolute;
+  font-size: 1.2rem;
+  display: block;
+  right: 15px;
+  color: #000;
+  top: 10px;
+}
+.search-result h2 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.search-result h2 span {
+  font-size: 1.2rem;
+}
+.search-result h2 span.from {
+  margin-right: 3px;
+}
+.search-result h2 span.to {
+  margin-left: 3px;
+}
+.search-result ul.aspect-list {
+  padding: 10px 35px;
+  text-align: center;
+  list-style: none;
+  margin: 0;
+}
+.search-result ul.aspect-list li.aspect {
+  display: inline-block;
+  padding: 0 12px 10px 12px;
+  text-align: center;
+}
+.search-result ul.aspect-list li.aspect img {
+  margin: 0;
+  width: 32px;
+  float: none;
+}
+.search-result ul.aspect-list li.aspect .aspect-name {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+  text-transform: capitalize;
+}
+.search-result .search-info {
+  width: 100%;
+  font-size: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.search-result .search-info .total-steps {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.search-result .search-info p,
+.search-result .search-info ul,
+.search-result .search-info ul li,
+.search-result .search-info ul li img {
+  display: inline-block;
+}
+.search-result .search-info ul.used-aspects {
+  padding: 0;
+  margin: 0;
+  margin-left: 15px;
+}
+.search-result .search-info ul.used-aspects li:first-child {
+  padding-right: 3px;
+}
+.search-result .search-info ul.used-aspects li.used-aspect {
+  padding-right: 10px;
+  font-size: 1.2em;
+}
+.search-result .search-info ul.used-aspects li.used-aspect img {
+  width: 20px;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+.search-result .search-info ul.used-aspects li.used-aspect span {
+  vertical-align: middle;
 }

@@ -17,6 +17,29 @@ var tcresearch = {
 		$avail	: $('#avail'),
 		$addons	: $('#addons'),
 		$version: $('#version'),
+		$search : $('#search-container'),
+		$searchResults: $('#search-results'),
+	},
+
+	html: {
+		searchResult: '<div class="search-result">'
+					+ '<a href="#" class="close-result"><i class="fa fa-times"></i></a>'
+					+ '<h2><span class="from"></span> &gt; <span class="to"></span></h2>'
+					+ '</div>',
+		aspectsList:  '<ul class="aspect-list">'
+					+ '</ul>',
+		searchAspect: '<li class="aspect">'
+					+ '<img />'
+					+'<div class="aspect-name"></div>'
+					+ '</li>',
+		searchInfo:   '<div class="search-info">'
+					+ '<p>Total steps: <span class="total-steps"></span></p>'
+					+ '<ul class="used-aspects"><li>Used aspects:</li></ul>'
+					+ '</div>',
+		usedAspect:   '<li class="used-aspect">'
+					+ '<img />'
+					+ '<span></span>'
+					+ '</li>'
 	},
 
 	// Add an unidirectional conection between two aspects in the graph
@@ -142,7 +165,8 @@ var tcresearch = {
 	},
 
 	run: function () {
-		var from 	= this.c.$from.val(),
+		var self 	= this,
+			from 	= this.c.$from.val(),
 			to 		= this.c.$to.val(),
 			steps 	= +this.c.$steps.val(),
 			id 		= from + 'to' + to,
@@ -151,16 +175,63 @@ var tcresearch = {
 			loopCount	= 0,
 			aspectCount = {};
 
+		var $searchResult = $(self.html.searchResult),
+			$aspectsList  = $(self.html.aspectsList),
+			$searchInfo   = $(self.html.searchInfo);
+
 		path.forEach(function (aspect) {
 			loopCount++;
 
 			if (loopCount != 1 && loopCount < path.length) {
 				typeof aspectCount[aspect] == 'undefined' && (aspectCount[aspect] = 0);
 				aspectCount[aspect]++;
+				stepCount++;
 			};
 
-			console.log(aspect);
-		})
+			$(self.html.searchAspect)
+				.find('img')
+					.attr('src', 'aspects/color/' + translate[aspect] + '.png')
+				.next()
+					.text(translate[aspect])
+				.parent()
+				.appendTo($aspectsList);
+		});
+
+		$.each(aspectCount, function (aspect, value) {
+
+			if ( ! value ) 
+				return;
+
+			$(self.html.usedAspect)
+				.find('img')
+					.attr('src', 'aspects/color/' + translate[aspect] + '.png')
+				.next()
+					.text(value)
+				.parent()
+				.appendTo($searchInfo.find('ul'));
+			
+		});
+
+		$searchResult
+			.find('.from')
+				.text(from)
+			.next()
+				.text(to)
+			.parent()
+			.after($aspectsList);
+
+		$searchInfo
+			.find('.total-steps')
+				.text(stepCount);
+
+		$aspectsList
+			.after($searchInfo);
+
+		self.c.$searchResults.append($searchResult);
+		$searchResult.animate({
+			'margin-top': 0,
+			opacity: 1
+		});
 	},
 
 	resetAspects: function () {
@@ -274,6 +345,11 @@ var tcresearch = {
 		var self = this;
 		
 		$('#find_connection').on('click', function (e) {
+			if ( ! self.c.$searchResults.children().length ) {
+				self.c.$search.removeClass('col-lg-offset-4 col-md-offset-4 col-sm-offset-3');
+				self.c.$searchResults.fadeIn();
+			}
+
 			self.run();
 		});
 
@@ -308,6 +384,36 @@ var tcresearch = {
 			self.resetAspects();
 		});
 
+		$('#increment').click(function (e) {
+			e.preventDefault();
+			
+			var val = self.c.$steps.val();
+			val = +val + 1;
+			self.c.$steps.val(val);
+		});
+
+		$('#decrement').click(function (e) {
+			e.preventDefault();
+			
+			var val = self.c.$steps.val();
+			val = (val > 1) ? +val - 1 : 1;
+			self.c.$steps.val(val);
+		});
+
+		$('body').on('click', 'a.close-result', function () {
+			$(this)
+				.parent()
+				.slideUp(400, function () {
+					this.remove();
+					
+					if ( ! self.c.$searchResults.children().length ){
+						self.c.$search.addClass('col-lg-offset-4 col-md-offset-4 col-sm-offset-3');
+						self.c.$searchResults.fadeOut();
+					}
+				});
+			
+		})
+		
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);
 		});

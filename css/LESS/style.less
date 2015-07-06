@@ -24,14 +24,18 @@ html {
 	}
 }
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600,400);
+
 /**
  * Basic styles
  */
-html {
+body {
+	font-family: 'Open Sans', Helvetica, sans-serif;
 	font-size: 62.5%;
 }
 .tb {
 	display: table;
+	margin: 0 auto;
 }
 .tbc {
 	display: table-cell;
@@ -156,3 +160,139 @@ html {
 	}	
 }
 
+
+/**
+ * Search Results styles
+ */
+#search-results {
+	display: none;
+	overflow-y: auto;
+	&::-webkit-scrollbar-track
+	{
+		-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+		background-color: #fff;
+	}
+
+	&::-webkit-scrollbar
+	{
+		width: 6px;
+		background-color: #fff;
+	}
+
+	&::-webkit-scrollbar-thumb
+	{
+		background-color: #333;
+	}	
+}
+.search-result {
+
+	margin-top: 20px;
+	opacity: 0;
+
+	width: 100%;
+	padding: 15px 15px 10px 15px;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+
+	.close-result {
+		position: absolute;
+		font-size: 1.2rem;
+		display: block;
+		right: 15px;
+		color: #000;
+		top: 10px;
+	}
+	
+	h2 {
+		margin: 0;
+		font-size: 1rem;
+		text-transform: uppercase;
+		font-weight: bold;
+
+		span {
+			font-size: 1.2rem;
+			&.from {
+				margin-right: 3px;
+			}
+			&.to {
+				margin-left: 3px;
+			}
+		}
+	}
+
+	ul.aspect-list {
+		padding: 10px 35px;
+		text-align: center;
+		list-style: none;
+		margin: 0;
+
+		li.aspect {
+			display: inline-block;
+			padding: 0 12px 10px 12px;
+			text-align: center;
+
+			img {
+				margin: 0;
+				width: 32px;
+				float: none;
+			}
+			.aspect-name {
+				font-size: 1.5rem;
+				font-weight: 300;
+				font-style: normal;
+				text-align: center;
+				text-transform: capitalize;
+			}
+		}
+
+	}
+
+	.search-info {
+		width: 100%;
+		font-size: 1rem;
+		position: relative;
+		text-transform: uppercase;
+		font-weight: 600;
+
+		.total-steps {
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+
+		p,
+		ul,
+		ul li,
+		ul li img {
+			display: inline-block;
+		}
+
+		ul.used-aspects {
+			padding: 0;
+			margin: 0;
+			margin-left: 15px;
+
+			li:first-child {
+				padding-right: 3px;
+			}
+
+			li.used-aspect {
+				padding-right: 10px;
+				font-size: 1.2em;
+
+				img {
+					width: 20px;
+					padding-right: 3px;
+					vertical-align: middle;
+				}
+
+				span {
+					vertical-align: middle;
+				}
+			}
+		}
+
+
+	}
+
+
+}
