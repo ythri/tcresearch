@@ -114,23 +114,24 @@ var tcresearch = {
 			.removeClass('unavail')
 			.find('img')
 			.attr('src', function (i, orig) {
-				return orig.replace('/mono/', 'color');
+				return orig.replace(/mono/, 'color');
 			});
 	},
 
 	disableAspect: function (aspect) {
 		$(aspect)
-			.removeClass('unavail')
+			.addClass('unavail')
 			.find('img')
 			.attr('src', function (i, orig) {
-				return orig.replace('/color/', 'mono');
+				return orig.replace(/color/, 'mono');
 			});
 	},
 
 	toggle: function (aspect) {
 		if ( $(aspect).hasClass('unavail') )
 			this.enableAspect(aspect);
-		this.disableAspect(aspect);
+		else 
+			this.disableAspect(aspect);
 	},
 
 	toggleAddons: function (list) {
@@ -310,7 +311,6 @@ var tcresearch = {
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);
 		});
-
 	},
 
 	init: function () {
