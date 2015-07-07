@@ -20,6 +20,10 @@ var tcresearch = {
 		$search : $('#search-container'),
 		$searchResults: $('#search-results'),
 		$resultsWrapper: $('#search-results-wrapper'),
+		$combBox:  $('#combination-box'),
+		$combBoxL: $('#combination-box #left'),
+		$combBoxR: $('#combination-box #right'),
+		$combBoxE: $('#combination-box #equals'),
 	},
 
 	html: {
@@ -191,6 +195,7 @@ var tcresearch = {
 			};
 
 			$(self.html.searchAspect)
+				.attr('id', aspect)
 				.find('img')
 					.attr('src', 'aspects/color/' + translate[aspect] + '.png')
 				.next()
@@ -459,7 +464,43 @@ var tcresearch = {
 				self.c.$resultsWrapper.fadeOut();
 				$('#close_results').fadeOut();
 			});
-		})
+		});
+
+		var primaryAspects = {'fire':1, 'water':1, 'order':1, 'air':1, 'entropy':1, 'earth':1};
+		$('body').on('mouseenter', '#avail .aspect, #search-results .aspect', function () {
+			
+			var aspect = $(this).attr('id');
+
+			if ( aspect in primaryAspects ) {
+				self.c.$combBox.hide();
+				return;
+			}
+
+			var combo = self.combinations[aspect];
+			var left = combo[0];
+			var right = combo[1];
+
+			self.c.$combBoxL
+				.find('img')
+				.attr('src', 'aspects/color/' + translate[left] + '.png')
+				.next().text(translate[left])
+				.next().text(left);
+			self.c.$combBoxR
+				.find('img')
+				.attr('src', 'aspects/color/' + translate[right] + '.png')
+				.next().text(translate[right])
+				.next().text(right);
+			self.c.$combBoxE
+				.find('img')
+				.attr('src', 'aspects/color/' + translate[aspect] + '.png')
+				.next().text(translate[aspect])
+				.next().text(aspect);
+			self.c.$combBox.css('display', 'inline-block');
+		});
+
+		$('body').on('mouseleave', '#avail .aspect, #search-results .aspect', function () {
+			// self.c.$combBox.hide();
+		});
 
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);

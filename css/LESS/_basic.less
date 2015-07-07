@@ -86,3 +86,66 @@ h2 {
 	text-align: center;
 	padding: 10px 0;
 }
+
+#combination-box-wrapper {
+
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+
+	#combination-box {
+		display: none;
+		padding: 10px 0;
+		background-image: url('../zwartevilt.png');
+		background-repeat: repeat;
+		background-attachment: fixed;
+		border-style: solid;
+		border-color: @color-primary-500;
+		border-width: 1px 1px 0 1px;
+		border-radius: 3px;
+	}
+
+	#left,
+	#right,
+	#equals {
+
+		padding: 0 18px;
+		position: relative;
+
+		img {
+			max-width: 24px;
+			margin: 0 auto;
+		}
+		.aspect-name {
+			font-size: 1.2rem;
+			font-weight: 400;
+			text-transform: capitalize;
+		}
+		.aspect-desc {
+			font-size: 1rem;
+			font-weight: 300;
+			font-style: italic;
+			text-transform: capitalize;
+		}
+	}
+	#right::before,
+	#left::before {
+		font-family: 'FontAwesome';
+		position: absolute;
+		top: 12px;
+		right: -6px;
+		font-size: 1.2rem;
+		margin-left: 5px;
+	}
+	#left::before {
+		content: '\f067';
+	}
+	#right::before {
+		content: '\f054';
+	}
+
+}
+
+
+

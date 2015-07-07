@@ -82,6 +82,65 @@ h2 {
   text-align: center;
   padding: 10px 0;
 }
+#combination-box-wrapper {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+#combination-box-wrapper #combination-box {
+  display: none;
+  padding: 10px 0;
+  background-image: url('../zwartevilt.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  border-style: solid;
+  border-color: #e91e63;
+  border-width: 1px 1px 0 1px;
+  border-radius: 3px;
+}
+#combination-box-wrapper #left,
+#combination-box-wrapper #right,
+#combination-box-wrapper #equals {
+  padding: 0 18px;
+  position: relative;
+}
+#combination-box-wrapper #left img,
+#combination-box-wrapper #right img,
+#combination-box-wrapper #equals img {
+  max-width: 24px;
+  margin: 0 auto;
+}
+#combination-box-wrapper #left .aspect-name,
+#combination-box-wrapper #right .aspect-name,
+#combination-box-wrapper #equals .aspect-name {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+#combination-box-wrapper #left .aspect-desc,
+#combination-box-wrapper #right .aspect-desc,
+#combination-box-wrapper #equals .aspect-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  text-transform: capitalize;
+}
+#combination-box-wrapper #right::before,
+#combination-box-wrapper #left::before {
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 12px;
+  right: -6px;
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+#combination-box-wrapper #left::before {
+  content: '\f067';
+}
+#combination-box-wrapper #right::before {
+  content: '\f054';
+}
 /**
  * Search section styles
  */
