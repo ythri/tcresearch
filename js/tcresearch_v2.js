@@ -425,8 +425,17 @@ var tcresearch = {
 		$('#show-config').on('click', function () {
 			$('#config').slideToggle();
 			$(this).toggleClass('active');
+			$('#info').slideUp();
+			$('#show-info').removeClass('active');
 		});
 		
+		$('#show-info').on('click', function () {
+			$('#info').slideToggle();
+			$(this).toggleClass('active');
+			$('#config').slideUp();
+			$('#show-config').removeClass('active');
+		});
+
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);
 		});

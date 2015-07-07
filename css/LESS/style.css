@@ -307,3 +307,10 @@ label.btn input[type=radio] {
 #config #avail li.aspect:hover {
   background-color: rgba(33, 150, 243, 0.1);
 }
+/**
+ * Info section styles
+ */
+#info {
+  display: none;
+  font-size: 1.6rem;
+}
