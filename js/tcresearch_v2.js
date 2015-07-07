@@ -19,11 +19,12 @@ var tcresearch = {
 		$version: $('#version'),
 		$search : $('#search-container'),
 		$searchResults: $('#search-results'),
+		$resultsWrapper: $('#search-results-wrapper'),
 	},
 
 	html: {
 		searchResult: '<div class="search-result">'
-					+ '<a href="#" class="close-result"><i class="fa fa-times"></i></a>'
+					+ '<a href="#" class="close-result"><i class="fa fa-trash-o"></i></a>'
 					+ '<h2><span class="from"></span> &gt; <span class="to"></span></h2>'
 					+ '</div>',
 		aspectsList:  '<ul class="aspect-list">'
@@ -347,10 +348,14 @@ var tcresearch = {
 		$('#find_connection').on('click', function (e) {
 			if ( ! self.c.$searchResults.children().length ) {
 				self.c.$search.removeClass('col-lg-offset-4 col-md-offset-4 col-sm-offset-3');
-				self.c.$searchResults.fadeIn();
-			}
+				self.c.$resultsWrapper.fadeIn();
+				$('#close_results').fadeIn();
 
-			self.run();
+				setTimeout(function () {
+					self.run();
+				}, 700);
+			} else 
+				self.run();
 		});
 
 		self.c.$addons.on('change', '.addon_toggle', function () {
@@ -408,7 +413,8 @@ var tcresearch = {
 					
 					if ( ! self.c.$searchResults.children().length ){
 						self.c.$search.addClass('col-lg-offset-4 col-md-offset-4 col-sm-offset-3');
-						self.c.$searchResults.fadeOut();
+						self.c.$resultsWrapper.fadeOut();
+						$('#close_results').fadeOut();
 					}
 				});
 			

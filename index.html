@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class=" full-height">
 <head>
 	<meta charset="UTF-8">
 	<title>Thaumcraft 4.x Research Helper</title>
@@ -16,30 +16,30 @@
 	<script type="text/javascript" src="js/addon_dictionary.js"></script>
 	<link rel="stylesheet" href="css/tcresearch.css">
 	<link rel="stylesheet" href="css/LESS/style.css">
-	<style type="text/css">
-	.select2-container .select2-choice {
-		height: 44px;
-	}
-	</style>
 </head>
-<body>
+<body class="full-height">
 
-	<div class="container" id="main">
+	<div class="container full-height" id="main">
 
-		<div class="row">
+		<div class="row full-height">
+			
 			<!-- Search container -->
-			<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12" id="search-container">
+			<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 full-height" id="search-container">
 
-				<div class="row">
+				<div class="row full-height">
 
 					<div class="tb full-height">
 						<div class="tbc vam full-height">
 							
 							<div class="col-md-12 clearfix">
 
-								<div class="btn-group pull-right">
-									<button class="btn btn-default"><span class="fa fa-cog"></span></button>
-									<button class="btn btn-default"><span class="fa fa-question"></span></button>
+
+								<div class="pull-right">
+									<div class="btn-group">
+										<button class="btn btn-default" id="show-config"><span class="fa fa-cog"></span></button>
+										<button class="btn btn-default" id="show-info"><span class="fa fa-question"></span></button>
+									</div>
+									<a href="#" class="btn btn-default" id="close_results"><i class="fa fa-trash-o"></i></a>
 								</div>
 								
 							</div>
@@ -83,11 +83,13 @@
 				
 			</div> <!-- .search-container -->
 
-			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12" id="search-results">
-				
-			</div>
+			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 full-height" id="search-results-wrapper">
 
+				<div id="search-results">
+					
+				</div>
 
+			</div> <!-- .search-results -->
 
 		</div> <!-- .row -->
 		

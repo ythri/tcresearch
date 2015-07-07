@@ -8,21 +8,6 @@
 .full-height {
 	height: 100%;
 }
-html {
-	&,
-	body {
-		&,
-		#main {
-			&,
-			& .row {
-				&,
-				.col-xs-12 {
-					.full-height;
-				}
-			}
-		}
-	}
-}
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600,400);
 
@@ -113,6 +98,9 @@ body {
 
 }
 .select2-container {
+	.select2-choice {
+		height: 44px;
+	}
 	&,
 	&.select2-dropdown-open.select2-drop-above,
 	&.select2-dropdown-open.select2-drop-above {
@@ -164,7 +152,7 @@ body {
 /**
  * Search Results styles
  */
-#search-results {
+#search-results-wrapper {
 	display: none;
 	overflow-y: auto;
 	&::-webkit-scrollbar-track
@@ -185,8 +173,7 @@ body {
 	}	
 }
 .search-result {
-
-	margin-top: 20px;
+	margin-top: -20px;
 	opacity: 0;
 
 	width: 100%;
@@ -288,11 +275,23 @@ body {
 				span {
 					vertical-align: middle;
 				}
+				&:after {
+				  content: "|";
+				  margin-left: 5px;
+				  position: relative;
+				  color: #ccc;				
+				}
+				&:last-child:after {
+					content: none;
+				}
 			}
 		}
 
 
 	}
-
-
 }
+#close_results {
+	margin-left: 10px;
+	display: none;
+}
+
