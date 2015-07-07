@@ -45,7 +45,7 @@ var tcresearch = {
 					+ '<img />'
 					+ '<span></span>'
 					+ '</li>',
-		toggleAddon:  '<label class="btn btn-default active"><input type="checkbox" class="addon_toggle" checked="checked"/><span></span></label>'
+		toggleAddon:  '<label class="btn btn-default"><input type="checkbox" class="addon_toggle" /><span></span></label>'
 	},
 
 	// Add an unidirectional conection between two aspects in the graph
@@ -166,7 +166,7 @@ var tcresearch = {
 	toggleAddons: function (list) {
 		var self = this;
 		list.forEach(function (aspect) {
-			self.disableAspect(aspect);
+			self.disableAspect('#avail #' + aspect);
 		});
 	},
 
