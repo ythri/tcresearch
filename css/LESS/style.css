@@ -403,6 +403,10 @@ h2 {
 .search-result .search-info ul.used-aspects li.used-aspect:last-child:after {
   content: none;
 }
+.from-aspect,
+.to-aspect {
+  display: none;
+}
 #close_results {
   margin-left: 10px;
   display: none;

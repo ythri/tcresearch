@@ -499,8 +499,24 @@ var tcresearch = {
 		});
 
 		$('body').on('mouseleave', '#avail .aspect, #search-results .aspect', function () {
-			// self.c.$combBox.hide();
+			self.c.$combBox.hide();
 		});
+
+		$('body').on('click', '#search-results .aspect', function () {
+			var $this = $(this),
+				aspect = $this.attr('id'),
+				$h2 = $this.parent().prev(),
+				from = $h2.find('.from').text(),
+				to = $h2.find('.to').text();
+			console.log(from, to, $h2);
+
+			self.c.$from.select2('val', from);
+			self.c.$to.select2('val', to);
+			self.disableAspect('#' + aspect);
+			self.disableAspect('#avail #' + aspect);
+			self.run();
+		});
+
 
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);
