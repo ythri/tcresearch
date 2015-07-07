@@ -19,6 +19,34 @@
 </head>
 <body class="full-height">
 
+	<div class="container" id="config">
+
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+
+				<div class="clearfix text-center">
+
+					<div class="btn-group">
+						<a href="#" class="btn btn-default" id="sel_all">Select All</a>
+						<a href="#" class="btn btn-default" id="desel_all">Deselect All</a>
+					</div>
+
+					<div class="btn-group" id="addons">
+					</div>
+
+					<div class="btn-group">
+						<select name="version" id="version" class="btn btn-default"></select>
+					</div>
+
+				</div>
+
+				<ul id="avail"></ul>
+				
+			</div>
+		</div>
+		
+	</div>
+
 	<div class="container full-height" id="main">
 
 		<div class="row full-height">
@@ -102,16 +130,16 @@
 		<tr>
 			<td>Version:</td>
 			<td>
-				<select id="version">
-				</select>
+				<!-- <select id="version"> -->
+				<!-- </select> -->
 			</td>
 		</tr>
 		<!-- <tr><td>From:</td><td><input type=hidden id="fromSel"></input></td></tr> -->
 		<!-- <tr><td>To:</td><td><input type=hidden id="toSel"></input></td></tr> -->
 		<!-- <tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="1" style="width:140px" /></td></tr> -->
 		<!-- <tr><td></td><td><input id="find_connection" type="button" value="Find Connection" /><input id="close_results" type="button" value="Close all results" /></td></tr> -->
-		<tr><td>Addons:</td><td id="addons"></td></tr> 
-		<tr><td>Available<br/>Aspects:</td><td><input type="button" id="sel_all" value="Select All Aspects"><input type="button" id="desel_all" value="Deselect All Aspects"><ul id="avail" class="aspectlist"></ul></td></tr>
+		<!-- <tr><td>Addons:</td><td id="addons"></td></tr>  -->
+		<!-- <tr><td>Available<br/>Aspects:</td><td><input type="button" id="sel_all" value="Select All Aspects"><input type="button" id="desel_all" value="Deselect All Aspects"><ul id="avail" class="aspectlist"></ul></td></tr> -->
 	</table>
 
 	<h3 style="margin-top:100px">Help</h3>

@@ -40,7 +40,8 @@ var tcresearch = {
 		usedAspect:   '<li class="used-aspect">'
 					+ '<img />'
 					+ '<span></span>'
-					+ '</li>'
+					+ '</li>',
+		toggleAddon:  '<label class="btn btn-default active"><input type="checkbox" class="addon_toggle" checked="checked"/><span></span></label>'
 	},
 
 	// Add an unidirectional conection between two aspects in the graph
@@ -107,13 +108,13 @@ var tcresearch = {
 
 		$.each(addon_dictionary, function (key, addonInfo) {
 
-			var $addon = $('<div class="checkbox"><input type="checkbox" class="addon_toggle" /><label></label></div>');
+			var $addon = $(self.html.toggleAddon);
 			$addon
 				.find('input')
 					.attr('id', key)
 				.next()
-					.attr('for', key)
 					.text(addonInfo['name'])
+				.parent()
 				.appendTo(self.c.$addons);
 
 			$.each(addonInfo['combinations'], function (name, comb) {
@@ -289,9 +290,9 @@ var tcresearch = {
 					.attr('src', 'aspects/color/' + translate[aspect] + '.png')
 				.next()
 				.find('h4')
-					.text('alskdjfalskdjflaskdfj')
+					.text(translate[aspect])
 				.next()
-					.text('asdjflakdfj');
+					.text(aspect);
 
 			$aspect.appendTo(self.c.$avail);
 		});
@@ -361,7 +362,7 @@ var tcresearch = {
 		self.c.$addons.on('change', '.addon_toggle', function () {
 			var $this = $(this),
 				addon = $this.attr('id');
-			if ( $this.is(':checked') )
+			if ( $this.is(':checked') ) 
 				addon_dictionary[addon]['aspects'].forEach(function (aspect) {
 					self.enableAspect('#'+aspect);
 				});
@@ -369,6 +370,7 @@ var tcresearch = {
 				addon_dictionary[addon]['aspects'].forEach(function (aspect) {
 					self.disableAspect('#'+aspect);
 				});
+			$this.parent().toggleClass('active');
 		});
 
 		$('#sel_all').on('click', function () {
@@ -418,7 +420,12 @@ var tcresearch = {
 					}
 				});
 			
-		})
+		});
+
+		$('#show-config').on('click', function () {
+			$('#config').slideToggle();
+			$(this).toggleClass('active');
+		});
 		
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);
