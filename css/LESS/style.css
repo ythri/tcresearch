@@ -144,11 +144,6 @@ h2 {
 /**
  * Search section styles
  */
-@media (max-width: 768px) {
-  #search-container {
-    margin-top: 50px;
-  }
-}
 #search-container {
   transition: margin-left 0.7s ease-in-out;
 }
@@ -403,13 +398,14 @@ h2 {
 .search-result .search-info ul.used-aspects li.used-aspect:last-child:after {
   content: none;
 }
-.from-aspect,
-.to-aspect {
-  display: none;
-}
 #close_results {
   margin-left: 10px;
   display: none;
+}
+@media (max-width: 768px) {
+  #search-container {
+    margin-top: 50px;
+  }
 }
 /**
  * Config Section styles
@@ -492,6 +488,11 @@ h2 {
 }
 #config #avail li.aspect:hover {
   background-color: rgba(100, 181, 246, 0.3);
+}
+@media (max-width: 768px) {
+  #config #avail li.aspect {
+    width: 33.3333%;
+  }
 }
 /**
  * Info section styles

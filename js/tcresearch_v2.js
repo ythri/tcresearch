@@ -515,6 +515,7 @@ var tcresearch = {
 			self.disableAspect('#' + aspect);
 			self.disableAspect('#avail #' + aspect);
 			self.run();
+			self.enableAspect('#avail #' + aspect);
 		});
 
 
@@ -549,6 +550,6 @@ function ddDataSort (a, b) {
  * Helper functions
  */
 function getWeight (aspect) {
-	return $('#' + aspect).hasClass('unavail') ? 100 : 1;
+	return $('#avail #' + aspect).hasClass('unavail') ? 100 : 1;
 }
 
