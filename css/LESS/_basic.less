@@ -1,0 +1,88 @@
+/**
+ * Basic styles that are common throughout the page.
+ */
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,600,400');
+
+@media (min-width: 768px) {
+	.full-height {
+		height: 100%;
+	}
+}
+body {
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	font-size: 62.5%;
+
+	background-image: url('../zwartevilt.png');
+	background-repeat: repeat;
+	background-attachment: fixed;
+	color: #fff;
+}
+.tb {
+	display: table;
+	margin: 0 auto;
+}
+.tbc {
+	display: table-cell;
+}
+.vam {
+	vertical-align: middle;
+}
+label.btn {
+	input[type=checkbox],
+	input[type=radio] {
+		display: none;
+	}
+}
+.btn {
+	&:hover,
+	&:focus,
+	&:active,
+	.active {
+		outline: none;
+	}
+}
+.btn.btn-default {
+	border-color: @color-primary-500;
+	color: @color-primary-500;
+	background-color: transparent;
+
+	&:hover,
+	&:focus {
+		color: @color-text-lighter;
+		background-color: @color-primary-600;
+	}
+
+	&:active,
+	&.active  {
+		color: @color-text-lighter;
+		background-color: @color-primary-800;
+		border-color: @color-primary-500;
+		box-shadow: none;
+	}
+}
+.btn.btn-primary {
+	border-color: @color-primary-400;
+	background-color: @color-primary-500;
+	color: @color-text-lighter;
+	
+	&:hover,
+	&:focus,
+	&.active {
+		background-color: @color-primary-600;
+	}
+
+	&:active {
+		background-color: @color-primary-800;
+		border-color: @color-primary-500;
+	}
+
+}
+h2 {
+	font-size: 2.5rem;
+	font-weight: 400;
+	font-variant: small-caps;
+	color: @color-secondary-500;
+	text-align: center;
+	padding: 10px 0;
+}

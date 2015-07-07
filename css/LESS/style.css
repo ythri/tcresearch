@@ -1,16 +1,27 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600,400);
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,600,400');
 /**
- * Some variables to keep things ordered
+ * Thaumcraft 4 Research Helper Styles.
+ *
+ * This file just merges all the separated style files for the page.
  */
-.full-height {
-  height: 100%;
+/**
+ * Vars definitions.
+ */
+/**
+ * Basic styles that are common throughout the page.
+ */
+@media (min-width: 768px) {
+  .full-height {
+    height: 100%;
+  }
 }
-/**
- * Basic styles
- */
 body {
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 62.5%;
+  background-image: url('../zwartevilt.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: #fff;
 }
 .tb {
   display: table;
@@ -22,9 +33,63 @@ body {
 .vam {
   vertical-align: middle;
 }
+label.btn input[type=checkbox],
+label.btn input[type=radio] {
+  display: none;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn .active {
+  outline: none;
+}
+.btn.btn-default {
+  border-color: #e91e63;
+  color: #e91e63;
+  background-color: transparent;
+}
+.btn.btn-default:hover,
+.btn.btn-default:focus {
+  color: #ffffff;
+  background-color: #d81b60;
+}
+.btn.btn-default:active,
+.btn.btn-default.active {
+  color: #ffffff;
+  background-color: #ad1457;
+  border-color: #e91e63;
+  box-shadow: none;
+}
+.btn.btn-primary {
+  border-color: #ec407a;
+  background-color: #e91e63;
+  color: #ffffff;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary.active {
+  background-color: #d81b60;
+}
+.btn.btn-primary:active {
+  background-color: #ad1457;
+  border-color: #e91e63;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-variant: small-caps;
+  color: #2196f3;
+  text-align: center;
+  padding: 10px 0;
+}
 /**
- * Search styles
+ * Search section styles
  */
+@media (max-width: 768px) {
+  #search-container {
+    margin-top: 50px;
+  }
+}
 #search-container {
   transition: margin-left 0.7s ease-in-out;
 }
@@ -32,6 +97,7 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.2rem;
+  color: #ffffff;
 }
 #search-container form .select2-container.form-control {
   padding: 0;
@@ -39,24 +105,42 @@ body {
   box-shadow: none;
   height: auto;
 }
-#search-container form .form-control,
-#search-container form .btn {
+#search-container form .form-control {
   border-color: #cccccc;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
 }
 #search-container form .input-group-btn + .form-control {
   border-left: 0;
   text-align: center;
 }
+#search-container form .input-group {
+  width: 100%;
+}
 /**
  * Select 2 styles
  */
 .select2-drop .select2-search {
-  padding: 0 10px;
+  padding: 3px 10px;
+  border-bottom: 1px solid #64b5f6;
 }
 .select2-drop .select2-search input {
   border: 0;
-  border-bottom: 1px solid #cccccc;
+  font-size: 1.2rem;
   background-image: none;
+  padding-top: 5px;
+}
+.select2-drop .select2-results {
+  padding: 0;
+  margin: 0;
+}
+.select2-drop .select2-results .select2-result.select2-highlighted {
+  background-color: rgba(100, 181, 246, 0.5);
+}
+.select2-drop .select2-results .select2-result .aspect .aspect-desc,
+.select2-drop .select2-results .select2-result .aspect .aspect-name {
+  color: #555555;
 }
 .select2-drop .select2-results::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
@@ -69,6 +153,9 @@ body {
 .select2-drop .select2-results::-webkit-scrollbar-thumb {
   background-color: #333;
 }
+.select2-container {
+  background-color: transparent;
+}
 .select2-container .select2-choice {
   height: 44px;
 }
@@ -76,7 +163,7 @@ body {
 .select2-container.select2-dropdown-open.select2-drop-above .select2-choice,
 .select2-container.select2-dropdown-open.select2-drop-above .select2-choice {
   background-image: none;
-  background-color: #fff;
+  background-color: transparent;
   border: 1px solid #cccccc;
   border-radius: 2px;
 }
@@ -87,31 +174,36 @@ body {
   background-color: transparent;
   border-color: #cccccc;
 }
-.select2-drop .aspect,
+#select2-drop .aspect,
 .select2-container .aspect {
   display: table;
   padding: 5px 0;
+  color: #ffffff;
+  font-size: 1.2rem;
 }
-.select2-drop .aspect img,
+#select2-drop .aspect img,
 .select2-container .aspect img {
   float: none;
   display: table-cell;
   vertical-align: middle;
   margin: 0 !important;
+  padding-left: 5px;
 }
-.select2-drop .aspect > div,
-.select2-container .aspect > div {
+#select2-drop .aspect div,
+.select2-container .aspect div {
   display: inline-block;
   display: table-cell;
   vertical-align: middle;
   padding-left: 5px;
+  text-transform: capitalize;
 }
-.select2-drop .aspect > div:first-of-type,
-.select2-container .aspect > div:first-of-type {
-  font-weight: bold;
+#select2-drop .aspect .aspect-name,
+.select2-container .aspect .aspect-name {
+  font-weight: 600;
 }
-.select2-drop .aspect .desc,
-.select2-container .aspect .desc {
+#select2-drop .aspect .aspect-desc,
+.select2-container .aspect .aspect-desc {
+  font-weight: 300;
   font-size: 85%;
   font-style: italic;
 }
@@ -123,15 +215,15 @@ body {
   overflow-y: auto;
 }
 #search-results-wrapper::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
+  background-color: transparent;
+  border: 1px solid #f06292;
 }
 #search-results-wrapper::-webkit-scrollbar {
   width: 6px;
-  background-color: #fff;
+  background-color: transparent;
 }
 #search-results-wrapper::-webkit-scrollbar-thumb {
-  background-color: #333;
+  background-color: #f06292;
 }
 .search-result {
   margin-top: -20px;
@@ -139,24 +231,25 @@ body {
   width: 100%;
   padding: 15px 15px 10px 15px;
   position: relative;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .search-result .close-result {
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: block;
   right: 15px;
-  color: #000;
-  top: 10px;
+  color: #f06292;
+  top: 15px;
 }
 .search-result h2 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: bold;
+  color: #e91e63;
 }
 .search-result h2 span {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .search-result h2 span.from {
   margin-right: 3px;
@@ -172,8 +265,24 @@ body {
 }
 .search-result ul.aspect-list li.aspect {
   display: inline-block;
-  padding: 0 12px 10px 12px;
+  padding: 0 15px 15px 12px;
   text-align: center;
+  position: relative;
+}
+.search-result ul.aspect-list li.aspect:after {
+  font-family: 'FontAwesome';
+  vertical-align: middle;
+  position: absolute;
+  content: '\f054';
+  font-size: 9px;
+  display: table;
+  height: 100%;
+  top: 16px;
+  right: 0;
+  color: rgba(255, 255, 255, 0.3);
+}
+.search-result ul.aspect-list li.aspect:last-child:after {
+  content: none;
 }
 .search-result ul.aspect-list li.aspect img {
   margin: 0;
@@ -195,8 +304,8 @@ body {
   font-weight: 600;
 }
 .search-result .search-info .total-steps {
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .search-result .search-info p,
 .search-result .search-info ul,
@@ -204,16 +313,18 @@ body {
 .search-result .search-info ul li img {
   display: inline-block;
 }
+.search-result .search-info > p {
+  margin-right: 15px;
+}
 .search-result .search-info ul.used-aspects {
   padding: 0;
   margin: 0;
-  margin-left: 15px;
 }
 .search-result .search-info ul.used-aspects li:first-child {
   padding-right: 3px;
 }
 .search-result .search-info ul.used-aspects li.used-aspect {
-  padding-right: 10px;
+  padding-right: 7px;
   font-size: 1.2em;
 }
 .search-result .search-info ul.used-aspects li.used-aspect img {
@@ -226,7 +337,7 @@ body {
 }
 .search-result .search-info ul.used-aspects li.used-aspect:after {
   content: "|";
-  margin-left: 5px;
+  margin-left: 7px;
   position: relative;
   color: #ccc;
 }
@@ -237,39 +348,44 @@ body {
   margin-left: 10px;
   display: none;
 }
-label.btn input[type=checkbox],
-label.btn input[type=radio] {
-  display: none;
-}
 /**
  * Config Section styles
  */
 #config {
   display: none;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 #config .btn-group {
   margin-right: 15px;
+  padding-bottom: 15px;
 }
 #config .btn-group:last-child {
   margin: 0;
 }
+#config p.avail-label {
+  font-size: 1.8em;
+  color: #cccccc;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 20px 0;
+  text-align: center;
+}
 #config #avail {
-  max-height: 100%;
   font-size: 0;
   text-align: center;
-  max-height: 500px;
-  overflow-y: auto;
+  padding: 0;
 }
 #config #avail::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
+  background-color: transparent;
+  border: 1px solid #f06292;
 }
 #config #avail::-webkit-scrollbar {
   width: 6px;
-  background-color: #fff;
+  background-color: transparent;
 }
 #config #avail::-webkit-scrollbar-thumb {
-  background-color: #333;
+  background-color: #f06292;
 }
 #config #avail li.aspect {
   width: 20%;
@@ -290,27 +406,57 @@ label.btn input[type=radio] {
 #config #avail li.aspect .aspect-text {
   width: 100%;
   text-align: center;
+  color: #cccccc;
 }
 #config #avail li.aspect .aspect-text h4 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 400;
   text-transform: capitalize;
   margin: 0;
   padding-top: 5px;
 }
 #config #avail li.aspect .aspect-text .desc {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 300;
   text-transform: capitalize;
   font-style: italic;
 }
+#config #avail li.aspect.unavail {
+  background-color: rgba(240, 98, 146, 0.2);
+}
+#config #avail li.aspect.unavail:hover {
+  background-color: rgba(233, 30, 99, 0.2);
+}
 #config #avail li.aspect:hover {
-  background-color: rgba(33, 150, 243, 0.1);
+  background-color: rgba(100, 181, 246, 0.3);
 }
 /**
  * Info section styles
  */
 #info {
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: none;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+}
+#info strong {
+  font-weight: 600;
+  color: #f06292;
+}
+#info .web-info {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+#info .web-info p {
+  margin-bottom: 3px;
+  text-align: center;
+}
+#info .web-info p a {
+  color: #2196f3;
+}
+#info .web-info p a:hover,
+#info .web-info p a:focus,
+#info .web-info p a:active {
+  outline: none;
+  color: #e91e63;
 }

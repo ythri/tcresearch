@@ -302,7 +302,7 @@ var tcresearch = {
 		
 		function format (d) {
 			var aspect = d.id;
-			return '<div class="aspect" id="'+aspect+'"><img style="margin: 4px 5px 0 0" src="aspects/color/' + translate[aspect] + '.png" /><div>' + translate[aspect] + '</div><div class="desc">' + aspect + '</div></div>'
+			return '<div class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div class="aspect-name">' + translate[aspect] + '</div><div class="aspect-desc">' + aspect + '</div></div>'
 		}
 
 		$(element).select2({
@@ -310,6 +310,7 @@ var tcresearch = {
 			formatResult: format,
 			formatSelection: format,
 			allowClear: false,
+			placeholder: 'Search by name...',
 			sortResults: function (results, container, query) {
 				return results.sort(function (a, b) {
 					return translate[a.id].localeCompare(translate[b.id]);
@@ -347,6 +348,8 @@ var tcresearch = {
 		var self = this;
 		
 		$('#find_connection').on('click', function (e) {
+			e.preventDefault();
+
 			if ( ! self.c.$searchResults.children().length ) {
 				self.c.$search.removeClass('col-lg-offset-4 col-md-offset-4 col-sm-offset-3');
 				self.c.$resultsWrapper.fadeIn();
@@ -373,15 +376,19 @@ var tcresearch = {
 			$this.parent().toggleClass('active');
 		});
 
-		$('#sel_all').on('click', function () {
+		$('#sel_all').on('click', function (e) {
+			e.preventDefault();
+
 			self.aspects.forEach(function (aspect) {
-				self.enableAspect('#' + aspect); 
+				self.enableAspect('#avail #' + aspect); 
 			});
 		});
 
-		$('#desel_all').on('click', function () {
+		$('#desel_all').on('click', function (e) {
+			e.preventDefault();
+
 			self.aspects.forEach(function (aspect) {
-				self.disableAspect('#' + aspect); 
+				self.disableAspect('#avail #' + aspect); 
 			});
 		});
 
@@ -407,7 +414,9 @@ var tcresearch = {
 			self.c.$steps.val(val);
 		});
 
-		$('body').on('click', 'a.close-result', function () {
+		$('body').on('click', 'a.close-result', function (e) {
+			e.preventDefault();
+
 			$(this)
 				.parent()
 				.slideUp(400, function () {
@@ -422,19 +431,35 @@ var tcresearch = {
 			
 		});
 
-		$('#show-config').on('click', function () {
+		$('#show-config').on('click', function (e) {
+			e.preventDefault();
+
 			$('#config').slideToggle();
 			$(this).toggleClass('active');
 			$('#info').slideUp();
 			$('#show-info').removeClass('active');
 		});
 		
-		$('#show-info').on('click', function () {
+		$('#show-info').on('click', function (e) {
+			e.preventDefault();
+
 			$('#info').slideToggle();
 			$(this).toggleClass('active');
 			$('#config').slideUp();
 			$('#show-config').removeClass('active');
 		});
+
+		$('#close_results').on('click', function (e) {
+			e.preventDefault();
+
+			$('.search-result').slideUp('400', function () {
+				$(this).remove();
+
+				self.c.$search.addClass('col-lg-offset-4 col-md-offset-4 col-sm-offset-3');
+				self.c.$resultsWrapper.fadeOut();
+				$('#close_results').fadeOut();
+			});
+		})
 
 		self.c.$avail.on('click', '.aspect', function () {
 			self.toggle(this);
