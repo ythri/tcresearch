@@ -370,15 +370,17 @@ var tcresearch = {
 		self.c.$addons.on('change', '.addon_toggle', function () {
 			var $this = $(this),
 				addon = $this.attr('id');
-			if ( $this.is(':checked') ) 
+			if ( $this.is(':checked') ) {
 				addon_dictionary[addon]['aspects'].forEach(function (aspect) {
 					self.enableAspect('#'+aspect);
 				});
-			else 
+				$this.parent().addClass('active');
+			} else {
 				addon_dictionary[addon]['aspects'].forEach(function (aspect) {
 					self.disableAspect('#'+aspect);
 				});
-			$this.parent().toggleClass('active');
+				$this.parent().removeClass('active');
+			}
 		});
 
 		$('#sel_all').on('click', function (e) {
@@ -387,6 +389,9 @@ var tcresearch = {
 			self.aspects.forEach(function (aspect) {
 				self.enableAspect('#avail #' + aspect); 
 			});
+			$('.addon_toggle').each(function (idx, el) {
+				$(el).attr('checked', true).trigger('change');
+			});
 		});
 
 		$('#desel_all').on('click', function (e) {
@@ -394,6 +399,9 @@ var tcresearch = {
 
 			self.aspects.forEach(function (aspect) {
 				self.disableAspect('#avail #' + aspect); 
+			});
+			$('.addon_toggle').each(function (idx, el) {
+				$(el).attr('checked', false).trigger('change');
 			});
 		});
 
