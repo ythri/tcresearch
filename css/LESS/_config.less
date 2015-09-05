@@ -1,0 +1,103 @@
+/**
+ * Config Section styles
+ */
+#config {
+	display: none;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	
+	.btn-group {
+		margin-right: 15px;
+		padding-bottom: 15px;
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	p.avail-label {
+		font-size: 1.8em;
+		color: @color-text-light;
+		font-weight: 600;
+		text-transform: uppercase;
+		margin: 20px 0;
+		text-align: center;
+	}
+
+	#avail {
+		font-size: 0;
+		text-align: center;
+		padding: 0;
+
+		&::-webkit-scrollbar-track {
+			// -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+			background-color: transparent;
+			border: 1px solid @color-primary-300;
+		}
+		&::-webkit-scrollbar {
+			width: 6px;
+			background-color: transparent;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: @color-primary-300;
+		}
+
+		li.aspect {
+			width: 20%;
+			display: inline-block;
+			text-align: center;
+			cursor: pointer;
+			padding: 5px 5px 10px 5px;
+
+			* {
+				padding: 0;
+				margin: 0;
+				overflow: initial;
+				float: none;
+			}
+
+			img {
+				display: inline-block;
+			}
+
+			.aspect-text {
+				width: 100%;
+				text-align: center;
+				color: @color-text-light;
+				
+				h4 {
+					font-size: 1.4rem;
+					font-weight: 400;
+					text-transform: capitalize;
+					margin: 0;
+					padding-top: 5px;
+				}
+				.desc {
+					font-size: 1.2rem;
+					font-weight: 300;
+					text-transform: capitalize;
+					font-style: italic;
+				}
+			}
+
+			&.unavail {
+				background-color: fade(@color-primary-300, 20%);
+				&:hover {
+					background-color: fade(@color-primary-500, 20%);
+				}
+			}
+
+			&:hover {
+				background-color: fade(@color-secondary-300, 30%);
+			}
+		}
+	}
+
+}
+
+@media (max-width: 768px) {
+	#config #avail li.aspect {
+		width: 33.3333%;
+	}
+}
+

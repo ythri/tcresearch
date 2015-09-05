@@ -1,47 +1,185 @@
 <!doctype html>
-<html>
+<html class=" full-height">
 <head>
 	<meta charset="UTF-8">
-	<title>Thaumcraft 4.x Research Helper</title>
-	<script type="text/javascript" src="buckets-minified.js"></script>
+	<title>Thaumcraft 4 Research Helper</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="js/buckets-minified.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="select2.min.js"></script>
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> -->
+	<script type="text/javascript" src="js/select2.min.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-	<link rel="stylesheet" href="select2.css">
-	<script type="text/javascript" src="translation_dictionary.js"></script>
-	<script type="text/javascript" src="version_dictionary.js"></script>
-	<script type="text/javascript" src="addon_dictionary.js"></script>
-	<script type="text/javascript" src="tcresearch.js"></script>
-	<link rel="stylesheet" href="tcresearch.css">
-	<style type="text/css">
-	.select2-container .select2-choice {
-		height: 44px;
-	}
-	</style>
+	<link rel="stylesheet" href="css/select2.css">
+	<script type="text/javascript" src="js/translation_dictionary.js"></script>
+	<script type="text/javascript" src="js/version_dictionary.js"></script>
+	<script type="text/javascript" src="js/addon_dictionary.js"></script>
+	<link rel="stylesheet" href="css/tcresearch.css">
+	<link rel="stylesheet" href="css/LESS/style.css">
 </head>
-<body>
-	<h2>Thaumcraft 4.x Research Helper</h2>
-	<div id="combination_box"><div id="left"></div><span class="operator">+</span><div id="right"></div><span class="operator">=</span><div id="equals"></div></div>
-	<table>
-		<tr>
-			<td>Version:</td>
-			<td>
-				<select id="version">
-				</select>
-			</td>
-		</tr>
-		<tr><td>From:</td><td><input type=hidden id="fromSel"></input></td></tr>
-		<tr><td>To:</td><td><input type=hidden id="toSel"></input></td></tr>
-		<tr><td>Min. Steps:</td><td><input id="spinner" name="value" value="1" style="width:140px" /></td></tr>
-		<tr><td></td><td><input id="find_connection" type="button" value="Find Connection" /><input id="close_results" type="button" value="Close all results" /></td></tr>
-		<tr><td>Addons:</td><td id="addons"></td></tr> 
-		<tr><td>Available<br/>Aspects:</td><td><input type="button" id="sel_all" value="Select All Aspects"><input type="button" id="desel_all" value="Deselect All Aspects"><ul id="avail" class="aspectlist"></ul></td></tr>
-	</table>
+<body class="full-height">
 
-	<h3 style="margin-top:100px">Help</h3>
-	<p>This script helps you with your Thaumcraft 4.x research. If you have a research note with two aspects that you don't know how to connect, simply choose them in the dropdown list above (<strong>From:</strong> and <strong>To:</strong>). Additionally, choose the minimum number of steps between those two aspects. If in your research note, the two aspects have two blank spaces between them, choose the value 2 for <strong>Min. Steps</strong>. Then click <strong>Find Connection</strong> and the script will search for the shortest path (well, with at least the minimum length) that connects the two aspects. Note that sometimes the length of any path is longer then the given minimum, but this should not be a problem for your research note.</p>
-	<p>If you are unhappy with the path you got, because you do not have access to those aspects yet or they are quite rare, simply disable those aspects from <strong>Available Aspects:</strong>. The script will then try to find paths without these. Note that this may cause the path to grow longer. If too many aspects are disabled and there are no paths left without any of those, the script will try to find the shortest path using the minimal number of disabled aspects.</p>
-	<p style="size:small;color:#666;margin-top:50px;">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" style="color:#55a;">Creative Commons Attribution 4.0 License</a>. Sources can be found in the <a href="https://github.com/ythri/tcresearch/tree/gh-pages" style="color:#55a;">github repository</a>.</p>
+	<div class="container full-height" id="main">
+
+		<div class="row full-height">
+			
+			<!-- Search container -->
+			<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 full-height" id="search-container">
+				<div class="row full-height">
+
+					<div class="tb full-height">
+						<div class="tbc vam full-height">
+							
+							<div class="col-md-12 clearfix">
+
+								<div class="pull-right">
+									<div class="btn-group">
+										<button class="btn btn-default" id="show-config"><span class="fa fa-cog"></span></button>
+										<button class="btn btn-default" id="show-info"><span class="fa fa-question"></span></button>
+									</div>
+									<a href="#" class="btn btn-default" id="close_results"><i class="fa fa-trash-o"></i></a>
+								</div>
+								
+							</div>
+
+							<div class="col-md-12">
+							<form>
+
+								<h2>Thaumcraft 4 Research Helper</h2>
+
+								<div class="form-group">
+									<label for="fromSel">From</label>
+									<input type="hidden" name="fromSel" id="fromSel" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label for="toSel">To</label>
+									<input type="hidden" name="toSel" id="toSel" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label for="steps">In, at least</label>
+									<div class="input-group">
+										<span class="input-group-btn">
+											<a class="btn btn-default" id="decrement"> <i class="fa fa-minus"></i> </a>
+										</span>
+										<input type="text" name="steps" id="steps" class="form-control" value="1">
+										<span class="input-group-btn">
+											<a class="btn btn-default" id="increment"> <i class="fa fa-plus"></i> </a>
+										</span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<a class="btn btn-block btn-primary" id="find_connection">Go!</a>
+								</div>
+
+							</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+			</div> <!-- .search-container -->
+
+			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 full-height" id="search-results-wrapper">
+
+				<div id="search-results"></div>
+
+			</div> <!-- .search-results -->
+
+		</div> <!-- .row -->
+		
+	</div>
+
+	<div class="container" id="config">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+				
+				<h2>Configuration</h2>
+				
+				<div class="clearfix text-center">
+
+					<div class="btn-group">
+						<a href="#" class="btn btn-default" id="sel_all">Select All</a>
+						<a href="#" class="btn btn-default" id="desel_all">Deselect All</a>
+					</div>
+
+					<div class="btn-group" id="addons">
+					</div>
+
+					<div class="btn-group">
+						<select name="version" id="version" class="btn btn-primary"></select>
+					</div>
+
+				</div>
+				
+				<p class="avail-label">Available Aspects</p>
+				<ul id="avail"></ul>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="container" id="info">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+				
+				<h2>Help</h2>
+
+				<p>This script helps you with your Thaumcraft 4.x research. If 
+				you have a research note with two aspects that you don't know how 
+				to connect, this is your tool.</p>
+
+				<ul>
+					<li>Select the <strong>aspect from which</strong> you have to <strong>start</strong>.</li>
+					<li>Select the <strong>aspect</strong> you have <strong>to get to</strong>.</li>
+					<li>Additionally, you can <strong>specify the minimum number of 
+					steps</strong> needed, that is, the number of empty spaces between 
+					the two aspects in your research note.</li>
+					<li><strong>Hit Go!</strong></li>
+				</ul>
+
+				<p>If you are unhappy with the path you got, because you do not 
+				have access to those aspects yet or they are quite rare, simply 
+				disable those aspects in the config section. Besides, clicking an 
+				aspect in a search result will rerun the search again, 
+				but with the aspect disabled (just momentarily). </p>
+				
+				<div class="web-info">
+					<p class="license">This work is licensed under a <a target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><span class="fa fa-copyright"></span> Creative Commons Attribution 4.0 License</a></p>
+					<p class="code">Original sources are hosted on <a target="_blank" href="https://github.com/ythri/tcresearch/tree/gh-pages"><span class="fa fa-github"></span> GitHub</a>. Original page can be found <a href="http://ythri.github.io/tcresearch/">here</a>.</p>
+					<p class="style">Styled by <a target="_blank" href="http://about.me/jesus.cuenca">Jesús Cuenca</a>. Fork hosted in <a target="_blank" href="https://github.com/JesusCuenca/tcresearch"><span class="fa fa-github"></span> GitHub</a>. Page can be found in its <a href="http://jesuscuenca.github.io/tcresearch/">GitHub page</a>.</p>
+				</div>
+
+				
+			</div>
+		</div>		
+	</div>
+
+	<div id="combination-box-wrapper">
+		<div id="combination-box">
+			<div id="left">
+				<img />
+				<div class="aspect-name"></div>
+				<div class="aspect-desc"></div>
+			</div>
+			<div id="right">
+				<img />
+				<div class="aspect-name"></div>
+				<div class="aspect-desc"></div>
+			</div>
+			<div id="equals">
+				<img />
+				<div class="aspect-name"></div>
+				<div class="aspect-desc"></div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/tcresearch_v2.js"></script>
+	
 </body>
 </html>

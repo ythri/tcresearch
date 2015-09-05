@@ -1,0 +1,526 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,600,400');
+/**
+ * Thaumcraft 4 Research Helper Styles.
+ *
+ * This file just merges all the separated style files for the page.
+ */
+/**
+ * Vars definitions.
+ */
+/**
+ * Basic styles that are common throughout the page.
+ */
+@media (min-width: 768px) {
+  .full-height {
+    height: 100%;
+  }
+}
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 62.5%;
+  background-image: url('../zwartevilt.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: #fff;
+}
+.tb {
+  display: table;
+  margin: 0 auto;
+}
+.tbc {
+  display: table-cell;
+}
+.vam {
+  vertical-align: middle;
+}
+label.btn input[type=checkbox],
+label.btn input[type=radio] {
+  display: none;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn .active {
+  outline: none;
+}
+.btn.btn-default {
+  border-color: #e91e63;
+  color: #e91e63;
+  background-color: transparent;
+}
+.btn.btn-default:hover,
+.btn.btn-default:focus {
+  color: #ffffff;
+  background-color: #d81b60;
+}
+.btn.btn-default:active,
+.btn.btn-default.active {
+  color: #ffffff;
+  background-color: #ad1457;
+  border-color: #e91e63;
+  box-shadow: none;
+}
+.btn.btn-primary {
+  border-color: #ec407a;
+  background-color: #e91e63;
+  color: #ffffff;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary.active {
+  background-color: #d81b60;
+}
+.btn.btn-primary:active {
+  background-color: #ad1457;
+  border-color: #e91e63;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-variant: small-caps;
+  color: #2196f3;
+  text-align: center;
+  padding: 10px 0;
+}
+#combination-box-wrapper {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+#combination-box-wrapper #combination-box {
+  display: none;
+  padding: 10px 0;
+  background-image: url('../zwartevilt.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  border-style: solid;
+  border-color: #e91e63;
+  border-width: 1px 1px 0 1px;
+  border-radius: 3px;
+}
+#combination-box-wrapper #left,
+#combination-box-wrapper #right,
+#combination-box-wrapper #equals {
+  padding: 0 18px;
+  position: relative;
+}
+#combination-box-wrapper #left img,
+#combination-box-wrapper #right img,
+#combination-box-wrapper #equals img {
+  max-width: 24px;
+  margin: 0 auto;
+}
+#combination-box-wrapper #left .aspect-name,
+#combination-box-wrapper #right .aspect-name,
+#combination-box-wrapper #equals .aspect-name {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+#combination-box-wrapper #left .aspect-desc,
+#combination-box-wrapper #right .aspect-desc,
+#combination-box-wrapper #equals .aspect-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  text-transform: capitalize;
+}
+#combination-box-wrapper #right::before,
+#combination-box-wrapper #left::before {
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 12px;
+  right: -6px;
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+#combination-box-wrapper #left::before {
+  content: '\f067';
+}
+#combination-box-wrapper #right::before {
+  content: '\f054';
+}
+/**
+ * Search section styles
+ */
+#search-container {
+  transition: margin-left 0.7s ease-in-out;
+}
+#search-container form label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+#search-container form .select2-container.form-control {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  height: auto;
+}
+#search-container form .form-control {
+  border-color: #cccccc;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
+}
+#search-container form .input-group-btn + .form-control {
+  border-left: 0;
+  text-align: center;
+}
+#search-container form .input-group {
+  width: 100%;
+}
+/**
+ * Select 2 styles
+ */
+.select2-drop .select2-search {
+  padding: 3px 10px;
+  border-bottom: 1px solid #64b5f6;
+}
+.select2-drop .select2-search input {
+  border: 0;
+  font-size: 1.2rem;
+  background-image: none;
+  padding-top: 5px;
+}
+.select2-drop .select2-results {
+  padding: 0;
+  margin: 0;
+}
+.select2-drop .select2-results .select2-result.select2-highlighted {
+  background-color: rgba(100, 181, 246, 0.5);
+}
+.select2-drop .select2-results .select2-result .aspect .aspect-desc,
+.select2-drop .select2-results .select2-result .aspect .aspect-name {
+  color: #555555;
+}
+.select2-drop .select2-results::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+.select2-drop .select2-results::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+.select2-drop .select2-results::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
+.select2-container {
+  background-color: transparent;
+}
+.select2-container .select2-choice {
+  height: 44px;
+}
+.select2-container .select2-choice,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice {
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+}
+.select2-container .select2-choice .select2-arrow,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice .select2-arrow,
+.select2-container.select2-dropdown-open.select2-drop-above .select2-choice .select2-arrow {
+  background-image: none;
+  background-color: transparent;
+  border-color: #cccccc;
+}
+#select2-drop .aspect,
+.select2-container .aspect {
+  display: table;
+  padding: 5px 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+#select2-drop .aspect img,
+.select2-container .aspect img {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 !important;
+  padding-left: 5px;
+}
+#select2-drop .aspect div,
+.select2-container .aspect div {
+  display: inline-block;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 5px;
+  text-transform: capitalize;
+}
+#select2-drop .aspect .aspect-name,
+.select2-container .aspect .aspect-name {
+  font-weight: 600;
+}
+#select2-drop .aspect .aspect-desc,
+.select2-container .aspect .aspect-desc {
+  font-weight: 300;
+  font-size: 85%;
+  font-style: italic;
+}
+/**
+ * Search Results styles
+ */
+#search-results-wrapper {
+  display: none;
+  overflow-y: auto;
+}
+#search-results-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid #f06292;
+}
+#search-results-wrapper::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+#search-results-wrapper::-webkit-scrollbar-thumb {
+  background-color: #f06292;
+}
+.search-result {
+  margin-top: -20px;
+  opacity: 0;
+  width: 100%;
+  padding: 15px 15px 10px 15px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.search-result .close-result {
+  position: absolute;
+  font-size: 1.3rem;
+  display: block;
+  right: 15px;
+  color: #f06292;
+  top: 15px;
+}
+.search-result h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #e91e63;
+}
+.search-result h2 span {
+  font-size: 1.5rem;
+}
+.search-result h2 span.from {
+  margin-right: 3px;
+}
+.search-result h2 span.to {
+  margin-left: 3px;
+}
+.search-result ul.aspect-list {
+  padding: 10px 35px;
+  text-align: center;
+  list-style: none;
+  margin: 0;
+}
+.search-result ul.aspect-list li.aspect {
+  display: inline-block;
+  padding: 0 15px 15px 12px;
+  text-align: center;
+  position: relative;
+}
+.search-result ul.aspect-list li.aspect:after {
+  font-family: 'FontAwesome';
+  vertical-align: middle;
+  position: absolute;
+  content: '\f054';
+  font-size: 9px;
+  display: table;
+  height: 100%;
+  top: 16px;
+  right: 0;
+  color: rgba(255, 255, 255, 0.3);
+}
+.search-result ul.aspect-list li.aspect:last-child:after {
+  content: none;
+}
+.search-result ul.aspect-list li.aspect img {
+  margin: 0;
+  width: 32px;
+  float: none;
+}
+.search-result ul.aspect-list li.aspect .aspect-name {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+  text-transform: capitalize;
+}
+.search-result .search-info {
+  width: 100%;
+  font-size: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.search-result .search-info .total-steps {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.search-result .search-info p,
+.search-result .search-info ul,
+.search-result .search-info ul li,
+.search-result .search-info ul li img {
+  display: inline-block;
+}
+.search-result .search-info > p {
+  margin-right: 15px;
+}
+.search-result .search-info ul.used-aspects {
+  padding: 0;
+  margin: 0;
+}
+.search-result .search-info ul.used-aspects li:first-child {
+  padding-right: 3px;
+}
+.search-result .search-info ul.used-aspects li.used-aspect {
+  padding-right: 7px;
+  font-size: 1.2em;
+}
+.search-result .search-info ul.used-aspects li.used-aspect img {
+  width: 20px;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+.search-result .search-info ul.used-aspects li.used-aspect span {
+  vertical-align: middle;
+}
+.search-result .search-info ul.used-aspects li.used-aspect:after {
+  content: "|";
+  margin-left: 7px;
+  position: relative;
+  color: #ccc;
+}
+.search-result .search-info ul.used-aspects li.used-aspect:last-child:after {
+  content: none;
+}
+#close_results {
+  margin-left: 10px;
+  display: none;
+}
+@media (max-width: 768px) {
+  #search-container {
+    margin-top: 50px;
+  }
+}
+/**
+ * Config Section styles
+ */
+#config {
+  display: none;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#config .btn-group {
+  margin-right: 15px;
+  padding-bottom: 15px;
+}
+#config .btn-group:last-child {
+  margin: 0;
+}
+#config p.avail-label {
+  font-size: 1.8em;
+  color: #cccccc;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 20px 0;
+  text-align: center;
+}
+#config #avail {
+  font-size: 0;
+  text-align: center;
+  padding: 0;
+}
+#config #avail::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid #f06292;
+}
+#config #avail::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+#config #avail::-webkit-scrollbar-thumb {
+  background-color: #f06292;
+}
+#config #avail li.aspect {
+  width: 20%;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px 5px 10px 5px;
+}
+#config #avail li.aspect * {
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  float: none;
+}
+#config #avail li.aspect img {
+  display: inline-block;
+}
+#config #avail li.aspect .aspect-text {
+  width: 100%;
+  text-align: center;
+  color: #cccccc;
+}
+#config #avail li.aspect .aspect-text h4 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 0;
+  padding-top: 5px;
+}
+#config #avail li.aspect .aspect-text .desc {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  font-style: italic;
+}
+#config #avail li.aspect.unavail {
+  background-color: rgba(240, 98, 146, 0.2);
+}
+#config #avail li.aspect.unavail:hover {
+  background-color: rgba(233, 30, 99, 0.2);
+}
+#config #avail li.aspect:hover {
+  background-color: rgba(100, 181, 246, 0.3);
+}
+@media (max-width: 768px) {
+  #config #avail li.aspect {
+    width: 33.3333%;
+  }
+}
+/**
+ * Info section styles
+ */
+#info {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: none;
+  font-size: 1.5rem;
+}
+#info strong {
+  font-weight: 600;
+  color: #f06292;
+}
+#info .web-info {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+#info .web-info p {
+  margin-bottom: 3px;
+  text-align: center;
+}
+#info .web-info p a {
+  color: #2196f3;
+}
+#info .web-info p a:hover,
+#info .web-info p a:focus,
+#info .web-info p a:active {
+  outline: none;
+  color: #e91e63;
+}
