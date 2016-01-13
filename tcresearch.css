@@ -2,9 +2,9 @@
 	list-style:none;
 	padding:0;
 	overflow:scroll;
-	height:300px;
+	height:405px;
 	display:block;
-	width:650px;
+	width:700px;
 }
 .aspectlist > li {
 	display:block;
@@ -27,7 +27,7 @@
 	font-weight:bold;
 }
 #avail > li {
-	width:25%;
+	width:20%;
 }
 .aspect img {
 	vertical-align:middle;
