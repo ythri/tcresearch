@@ -286,7 +286,7 @@ var version_dictionary = {
 			"weapon": ["soul", "entropy"],
 			"beast": ["motion", "life"],
 			"mind": ["fire", "soul"],
-			"greed": ["soul", "void"],
+			"greed2": ["soul", "void"],
 			"undead": ["motion", "death"],
 			"craft": ["exchange", "tool"],
 			"cold": ["fire", "entropy"],

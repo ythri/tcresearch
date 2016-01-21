@@ -44,6 +44,7 @@ var translate = {
 	"armor": "tutamen",
 	"hunger": "fames",
 	"greed": "lucrum",
+	"greed2": "desiderium",
 	"craft": "fabrico",
 	"cloth": "pannus",
 	"mechanism": "machina",
