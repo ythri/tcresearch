@@ -322,6 +322,7 @@ var version_dictionary = {
 		],
 		"combinations": {
 			"craft": ["man", "tool"],
+			"desire": ["man", "hunger"],
 		}
 	}
 };
