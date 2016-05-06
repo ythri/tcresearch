@@ -323,7 +323,34 @@ var version_dictionary = {
 		],
 		"combinations": {
 			"craft": ["man", "tool"],
-			"desire": ["man", "hunger"]
+			"desire": ["man", "hunger"],
+			"eldritch": ["void", "darkness"],
+			"aura": ["energy", "air"],
+			"aversion": ["soul", "entropy"],
+			"beast": ["motion", "life"],
+			"mind": ["fire", "soul"],
+			"undead": ["motion", "death"],
+			"cold": ["fire", "entropy"],
+			"plant": ["life", "earth"],
+			"man": ["soul", "life"],
+			"tool": ["metal", "energy"],
+			"light": ["air", "fire"],
+			"mechanism": ["motion", "tool"],
+			"metal": ["earth", "order"],
+			"death": ["water", "entropy"],
+			"motion": ["air", "order"],
+			"exchange": ["entropy", "order"],
+			"energy": ["order", "fire"],
+			"protect": ["soul", "earth"],
+			"senses": ["air", "soul"],
+			"soul": ["life", "death"],
+			"darkness": ["void", "light"],
+			"void": ["air", "entropy"],
+			"life": ["water", "earth"],
+			"trap": ["motion", "entropy"],
+			"taint": ["energy", "entropy"],
+			"crystal": ["earth", "air"],
+			"flight": ["air", "motion"]
 		}
 	}
 };
