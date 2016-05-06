@@ -311,7 +311,7 @@ var version_dictionary = {
 			"crystal": ["earth", "air"],
 			"flight": ["air", "motion"]
 	},
-	"5.1.3": {
+	"5.2": {
 		"base_aspects":[
 		"air",
 		"earth",
@@ -322,7 +322,7 @@ var version_dictionary = {
 		],
 		"combinations": {
 			"craft": ["man", "tool"],
-			"desire": ["man", "hunger"],
+			"desire": ["man", "hunger"]
 		}
 	}
 };
