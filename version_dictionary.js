@@ -310,6 +310,7 @@ var version_dictionary = {
 			"taint": ["energy", "entropy"],
 			"crystal": ["earth", "air"],
 			"flight": ["air", "motion"]
+		}
 	},
 	"5.2": {
 		"base_aspects":[
