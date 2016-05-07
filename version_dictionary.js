@@ -323,7 +323,7 @@ var version_dictionary = {
 		],
 		"combinations": {
 			"craft": ["man", "tool"],
-			"desire": ["man", "hunger"],
+			"greed": ["man", "hunger"],
 			"eldritch": ["void", "darkness"],
 			"aura": ["energy", "air"],
 			"aversion": ["soul", "entropy"],
