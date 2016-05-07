@@ -337,7 +337,7 @@ var version_dictionary = {
 			"light": ["air", "fire"],
 			"mechanism": ["motion", "tool"],
 			"metal": ["earth", "order"],
-			"death": ["water", "entropy"],
+			"death": ["life", "entropy"],
 			"motion": ["air", "order"],
 			"exchange": ["entropy", "order"],
 			"energy": ["order", "fire"],
