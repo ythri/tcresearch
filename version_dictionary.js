@@ -351,6 +351,7 @@ var version_dictionary = {
 			"trap": ["motion", "entropy"],
 			"taint": ["energy", "entropy"],
 			"crystal": ["earth", "air"],
+			"tree": ["plant", "air"],
 			"flight": ["air", "motion"]
 		}
 	}
