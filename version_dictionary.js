@@ -341,7 +341,7 @@ var version_dictionary = {
 			"motion": ["air", "order"],
 			"exchange": ["entropy", "order"],
 			"energy": ["order", "fire"],
-			"protect": ["soul", "earth"],
+			"armor": ["tool", "earth"],
 			"cloth": ["tool", "beast"],
 			"senses": ["air", "soul"],
 			"soul": ["life", "death"],
