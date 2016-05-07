@@ -332,7 +332,7 @@ var version_dictionary = {
 			"undead": ["motion", "death"],
 			"cold": ["fire", "entropy"],
 			"plant": ["life", "earth"],
-			"man": ["soul", "life"],
+			"man": ["mind", "beast"],
 			"tool": ["metal", "energy"],
 			"light": ["air", "fire"],
 			"mechanism": ["motion", "tool"],
