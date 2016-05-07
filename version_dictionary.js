@@ -22,6 +22,9 @@ var version_dictionary = {
 			"flight": ["air", "motion"],
 			"darkness": ["void", "light"],
 			"soul": ["life", "death"],
+    
+ Edit file    Preview changes
+
 			"heal": ["life", "life"],
 			"travel": ["motion", "earth"],
 			"poison": ["water", "death"],
@@ -352,6 +355,7 @@ var version_dictionary = {
 			"taint": ["energy", "entropy"],
 			"crystal": ["earth", "air"],
 			"tree": ["plant", "air"],
+			"magic": ["energy", "void"],
 			"flight": ["air", "motion"]
 		}
 	}
