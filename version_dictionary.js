@@ -22,9 +22,6 @@ var version_dictionary = {
 			"flight": ["air", "motion"],
 			"darkness": ["void", "light"],
 			"soul": ["life", "death"],
-    
- Edit file    Preview changes
-
 			"heal": ["life", "life"],
 			"travel": ["motion", "earth"],
 			"poison": ["water", "death"],
