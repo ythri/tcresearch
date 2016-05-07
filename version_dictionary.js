@@ -353,6 +353,7 @@ var version_dictionary = {
 			"taint": ["energy", "entropy"],
 			"crystal": ["earth", "order"],
 			"tree": ["plant", "air"],
+			"travel": ["motion", "earth"],
 			"flight": ["air", "motion"]
 		}
 	}
