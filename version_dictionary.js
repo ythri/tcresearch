@@ -342,7 +342,7 @@ var version_dictionary = {
 			"exchange": ["entropy", "order"],
 			"energy": ["order", "fire"],
 			"protect": ["soul", "earth"],
-			"pannus": ["tool", "beast"],
+			"cloth": ["tool", "beast"],
 			"senses": ["air", "soul"],
 			"soul": ["life", "death"],
 			"darkness": ["void", "light"],
