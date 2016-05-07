@@ -354,6 +354,7 @@ var version_dictionary = {
 			"crystal": ["earth", "order"],
 			"tree": ["plant", "air"],
 			"travel": ["motion", "earth"],
+			"crop": ["plant", "man"],
 			"flight": ["air", "motion"]
 		}
 	}
