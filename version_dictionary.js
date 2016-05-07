@@ -352,10 +352,10 @@ var version_dictionary = {
 			"void": ["air", "entropy"],
 			"life": ["water", "earth"],
 			"trap": ["motion", "entropy"],
+			"magic": ["energy", "void"],
 			"taint": ["energy", "entropy"],
 			"crystal": ["earth", "air"],
 			"tree": ["plant", "air"],
-			"magic": ["energy", "void"],
 			"flight": ["air", "motion"]
 		}
 	}
