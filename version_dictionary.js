@@ -333,7 +333,7 @@ var version_dictionary = {
 			"cold": ["fire", "entropy"],
 			"plant": ["life", "earth"],
 			"man": ["mind", "beast"],
-			"tool": ["metal", "energy"],
+			"tool": ["man", "order"],
 			"light": ["air", "fire"],
 			"mechanism": ["motion", "tool"],
 			"metal": ["earth", "order"],
