@@ -325,7 +325,7 @@ var version_dictionary = {
 			"craft": ["man", "tool"],
 			"greed": ["man", "hunger"],
 			"eldritch": ["void", "darkness"],
-			"aura": ["energy", "air"],
+			"aura": ["magic", "air"],
 			"weapon": ["tool", "fire"],
 			"beast": ["motion", "life"],
 			"mind": ["fire", "soul"],
