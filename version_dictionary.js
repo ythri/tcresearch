@@ -355,6 +355,8 @@ var version_dictionary = {
 			"tree": ["plant", "air"],
 			"travel": ["motion", "earth"],
 			"crop": ["plant", "man"],
+			"mine": ["man", "earth"],
+			"heal": ["life", "order"],
 			"flight": ["air", "motion"]
 		}
 	}
