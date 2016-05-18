@@ -1,9 +1,9 @@
-Thaumcraft 4.1 Research Helper
+Thaumcraft 5.2 Research Helper
 ==========
 
-[Link](http://ythri.github.io/tcresearch/)
+[Link](http://ralileo16.github.io/tcresearch/)
 
-This script helps you with your Thaumcraft 4.1 research. If you have a research note with two aspects that you don't 
+This script helps you with your Thaumcraft 5.2 research. If you have a research note with two aspects that you don't 
 know how to connect, simply choose them in the dropdown list above (From: and To:). Additionally, choose the minimum 
 number of steps between those two aspects. If in your research note, the two aspects have two blank spaces between 
 them, choose the value 2 for Min. Steps. Then click Find Connection and the script will search for the shortest path 
