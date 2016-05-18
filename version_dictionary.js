@@ -311,5 +311,53 @@ var version_dictionary = {
 			"crystal": ["earth", "air"],
 			"flight": ["air", "motion"]
 		}
+	},
+	"5.2": {
+		"base_aspects":[
+		"air",
+		"earth",
+		"fire",
+		"water",
+		"order",
+		"entropy"
+		],
+		"combinations": {
+			"craft": ["man", "tool"],
+			"greed": ["man", "hunger"],
+			"eldritch": ["void", "darkness"],
+			"aura": ["magic", "air"],
+			"weapon": ["tool", "fire"],
+			"beast": ["motion", "life"],
+			"mind": ["fire", "soul"],
+			"undead": ["motion", "death"],
+			"cold": ["fire", "entropy"],
+			"plant": ["life", "earth"],
+			"man": ["mind", "beast"],
+			"tool": ["man", "order"],
+			"light": ["air", "fire"],
+			"mechanism": ["motion", "tool"],
+			"metal": ["earth", "crystal"],
+			"death": ["life", "entropy"],
+			"motion": ["air", "order"],
+			"exchange": ["entropy", "order"],
+			"energy": ["order", "fire"],
+			"armor": ["tool", "earth"],
+			"cloth": ["tool", "beast"],
+			"senses": ["air", "soul"],
+			"soul": ["life", "death"],
+			"darkness": ["void", "light"],
+			"void": ["air", "entropy"],
+			"life": ["water", "earth"],
+			"trap": ["motion", "entropy"],
+			"magic": ["energy", "void"],
+			"taint": ["energy", "entropy"],
+			"crystal": ["earth", "order"],
+			"tree": ["plant", "air"],
+			"travel": ["motion", "earth"],
+			"crop": ["plant", "man"],
+			"mine": ["man", "earth"],
+			"heal": ["life", "order"],
+			"flight": ["air", "motion"]
+		}
 	}
 };
