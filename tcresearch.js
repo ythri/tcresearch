@@ -84,7 +84,6 @@ $(function(){
 		option.textContent = text;
 		return option;
 	}
-	
 	function formatAspectName(string)
 	{
 		//http://stackoverflow.com/a/1026087 Capitalize the first letter of string in JavaScript
@@ -99,6 +98,12 @@ $(function(){
 		max: 10
 	});
 	reset_aspects();
+	$('#swap_selections').click(function(){
+		var fromSel = $('#fromSel').select2("val");
+		var toSel = $('#toSel').select2("val");
+		$('#fromSel').select2('val', toSel);
+		$('#toSel').select2('val', fromSel);
+	});
 	$("#find_connection").click(function(){
 		run();
 	});
