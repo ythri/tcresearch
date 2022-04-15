@@ -64,5 +64,6 @@ var translate = {
 	"magnetism": "magneto",
 	"cheatiness": "nebrisum",
 	"radioactivity": "radio",
-	"stupidity": "stronito"
+	"stupidity": "stronito",
+	"apocalypse": "terminus"
 };

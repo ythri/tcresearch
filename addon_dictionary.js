@@ -29,5 +29,12 @@ var addon_dictionary = {
       "radioactivity": ["light", "energy"],
       "stupidity": ["entropy", "mind"]
     }
+  },
+  "av": {
+	  "name": "Avaritia",
+	  "aspects": ["apocalypse"],
+	  "combinations": {
+		  "apocalypse": ["greed", "eldritch"]
+	  }
   }
 };
