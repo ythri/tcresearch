@@ -65,5 +65,10 @@ var translate = {
 	"cheatiness": "nebrisum",
 	"radioactivity": "radio",
 	"stupidity": "stronito",
-	"apocalypse": "terminus"
+	"apocalypse": "terminus",
+	"equality": "aequalitas",
+	"madness": "vesania",
+	"beginning": "primordium",
+	"constellation": "astrum",
+	"glory": "gloria"
 };
